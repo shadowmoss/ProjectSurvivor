@@ -21,6 +21,7 @@ namespace ProjectSurvivor
 			{
 				if (Input.GetKeyDown(KeyCode.Space))
 				{
+					Global.ResetData();
 					this.CloseSelf();
 					SceneManager.LoadScene("SampleScene");
 				}

@@ -12,6 +12,7 @@ namespace ProjectSurvivor
 	{
 		protected override void OnInit(IUIData uiData = null)
 		{
+			Time.timeScale = 0;
 			mData = uiData as UIGamePassPanelData ?? new UIGamePassPanelData();
             // please add init code here
             // 全局的Update? QFrameWork的全局生命周期
@@ -19,6 +20,7 @@ namespace ProjectSurvivor
             {
                 if (Input.GetKeyDown(KeyCode.Space))
                 {
+					Global.ResetData();
                     this.CloseSelf();
                     SceneManager.LoadScene("SampleScene");
                 }
@@ -39,6 +41,7 @@ namespace ProjectSurvivor
 		
 		protected override void OnClose()
 		{
-		}
+            Time.timeScale = 1;
+        }
 	}
 }
