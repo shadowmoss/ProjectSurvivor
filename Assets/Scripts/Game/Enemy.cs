@@ -1,5 +1,7 @@
 using UnityEngine;
 using QFramework;
+using System;
+using static UnityEngine.EventSystems.EventTrigger;
 
 namespace ProjectSurvivor
 {
@@ -10,8 +12,12 @@ namespace ProjectSurvivor
         public float HP = 3;
 		void Start()
 		{
-			// Code Here
+            EnemyGenerator.EnemyCount.Value++;
 		}
+        private void OnDestroy()
+        {
+            EnemyGenerator.EnemyCount.Value--;
+        }
 
         private void Update()
         {
@@ -24,9 +30,27 @@ namespace ProjectSurvivor
             }
 
             if (HP <= 0) {
+
+                Global.GeneratePowerUp(this.gameObject);
                 this.DestroyGameObjGracefully();
-                Global.Exp.Value++;
             }
+        }
+
+        private bool mIgnoreHurt = false;
+        public void Hurt(float value)
+        {
+            if(mIgnoreHurt)
+            {
+                return;
+            }
+
+            Sprite.color = Color.red;
+            ActionKit.Delay(0.2f, () =>
+            {
+                this.HP -= Global.SimpleAbilityDamage.Value;
+                this.Sprite.color = Color.white;
+                mIgnoreHurt = false;
+            }).Start(this);
         }
     }
 }

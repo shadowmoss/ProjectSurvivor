@@ -17,7 +17,7 @@ namespace ProjectSurvivor
 
 			// 每当经验值变化时更新组件
 			Global.Exp.RegisterWithInitValue(exp => {
-				ExpText.text = "经验值:"+exp;
+				ExpText.text = "经验值:"+"("+exp+"/"+Global.ExpToNextLevel()+")";
 			}).UnRegisterWhenGameObjectDestroyed(gameObject);
 
 
@@ -30,11 +30,11 @@ namespace ProjectSurvivor
 
 
 
-			// 每当经验值大于等于5，消耗5点经验值升一级
+			// 经验值足够触发升级事件。
 			Global.Exp.Register(exp =>
 			{
-				if (exp >= 5) {
-					Global.Exp.Value -= 5;
+				if (exp >= Global.ExpToNextLevel()) {
+					Global.Exp.Value -= Global.ExpToNextLevel();
 					Global.Level.Value++;
 				}
 
@@ -47,16 +47,23 @@ namespace ProjectSurvivor
 
 				Time.timeScale = 0;
 
-				BtnUpgrade.Show();
+				UpgradeRoot.Show();
 
 			}).UnRegisterWhenGameObjectDestroyed(gameObject);
 
-			BtnUpgrade.Hide();
+            UpgradeRoot.Hide();
 
 			BtnUpgrade.onClick.AddListener(() => {
 				Time.timeScale = 1;
 				Global.SimpleAbilityDamage.Value *= 1.5f;
-				BtnUpgrade.Hide();
+                UpgradeRoot.Hide();
+			});
+
+			SimpleDurationUpgrade.onClick.AddListener(() =>
+			{
+				Time.timeScale = 1;
+				Global.SimpleAbilityDuration.Value *= 0.8f;
+				UpgradeRoot.Hide();
 			});
 
 
@@ -71,14 +78,31 @@ namespace ProjectSurvivor
 				}
 			}).UnRegisterWhenGameObjectDestroyed(gameObject);
 
+            EnemyGenerator enemyGenerator =  FindObjectOfType<EnemyGenerator>();
+
 			// 时间变化的执行任务
 			ActionKit.OnUpdate.Register(() =>
 			{
 				Global.CurrentSeconds.Value += Time.deltaTime;
-				if (Global.CurrentSeconds.Value >= 5) {
+				if (enemyGenerator.LastWave && EnemyGenerator.EnemyCount.Value==0) {
 					// 坚持超过设置的时间，则游戏通关
 					UIKit.OpenPanel<UIGamePassPanel>();
 				}
+			}).UnRegisterWhenGameObjectDestroyed(gameObject);
+
+			// 敌人数量
+			EnemyGenerator.EnemyCount.RegisterWithInitValue(currentEnemyCount =>
+			{
+				EnemyCountText.text = "敌人" + $"{currentEnemyCount}";
+			}).UnRegisterWhenGameObjectDestroyed(gameObject);
+
+
+            // 金币
+            //Global.Coin.Value = PlayerPrefs.GetInt("coin",0);
+			
+			Global.Coin.RegisterWithInitValue(coin => {
+				//PlayerPrefs.SetInt("coin",coin);
+				CoinText.text = "金币:" + coin;
 			}).UnRegisterWhenGameObjectDestroyed(gameObject);
 		}
 		

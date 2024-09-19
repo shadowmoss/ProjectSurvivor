@@ -23,9 +23,16 @@ namespace ProjectSurvivor
 				{
 					Global.ResetData();
 					this.CloseSelf();
-					SceneManager.LoadScene("SampleScene");
+					SceneManager.LoadScene("Game");
 				}
 			}).UnRegisterWhenGameObjectDestroyed(gameObject);
+
+			BtnBackToStart.onClick.AddListener(() =>
+			{
+				this.CloseSelf();
+				SceneManager.LoadScene("GameStart");
+
+            });
 		}
         protected override void OnOpen(IUIData uiData = null)
 		{

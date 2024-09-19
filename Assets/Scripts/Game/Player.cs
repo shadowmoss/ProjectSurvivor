@@ -21,9 +21,16 @@ namespace ProjectSurvivor
 		{
 			"HelloWorld!".LogInfo();
 			HurtBox.OnTriggerEnter2DEvent(collider2D => {
-				//ResKit.Init();
-				this.DestroyGameObjGracefully();
-                UIKit.OpenPanel<UIGameOverPanel>();
+                //ResKit.Init();
+                // 当触碰到敌人游戏才结束
+                HitBox hitBox =  collider2D.GetComponent<HitBox>();
+                if (hitBox) {
+                    if (hitBox.Owner.CompareTag("Enemy")) {
+                        this.DestroyGameObjGracefully();
+                        UIKit.OpenPanel<UIGameOverPanel>();
+                    }
+                }
+				
             }).UnRegisterWhenGameObjectDestroyed(gameObject);
 		}
 
