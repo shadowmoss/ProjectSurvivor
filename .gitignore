@@ -104,3 +104,44 @@ InitTestScene*.unity*
 
 # Auto-generated cache in Assets folder
 /[Aa]ssets/[Ss]ceneDependencyCache*
+# --- IntelliJ IDEA ---
+# 核心配置目录
+.idea/
+# 项目文件（旧版本）
+*.ipr
+*.iws
+*.iml
+
+# 工作区文件（新版本）
+*.code-workspace
+
+# 缓存和索引
+*.hprof
+*.pyc
+__pycache__/
+
+# 本地历史文件
+*.localhistory
+
+# 插件生成的索引
+.idea_modules/
+
+# 特定于用户的设置文件（通常不共享）
+*.xml
+!*.template.xml  # 例外：模板文件可以提交
+
+# 忽略整个项目目录（如果项目在子目录）
+# /[Pp]roject/
+
+# --- VS Code ---
+.vscode/*
+!.vscode/settings.json    # 可选：如果你希望共享团队基础配置
+!.vscode/tasks.json       # 可选：共享任务配置
+!.vscode/launch.json      # 可选：共享调试配置
+!.vscode/extensions.json  # 可选：共享推荐插件列表
+
+# 缓存和状态文件
+*.code-workspace
+.vscode/settings.json.backup
+.vscode/ipch/
+
