@@ -18,15 +18,9 @@ MonoBehaviour:
     GameObject: {fileID: 0}
     From: 0
     NameToFullName: []
-    BindInfos:
-    - TypeName: SpriteRenderer
-      PathToRoot: Sprite
-      MemberName: Sprite
-    - TypeName: Transform
-      PathToRoot: HitBox
-      MemberName: HitBox
-    ScriptsFolder: Assets/Scripts/Game
-    ClassName: Enemy
+    BindInfos: []
+    ScriptsFolder: Assets/Scripts/Game/Ability
+    ClassName: SimpleAbility
     Namespace: QFramework.Example
     MainCode: 
     DesignerCode: 

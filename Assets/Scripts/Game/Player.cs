@@ -22,7 +22,7 @@ namespace QFramework.Example
 
 			// Code Here
 
-			// 
+			// OnTriggerEnter2DEvent这个是EventKit当中的collision2d。
 			HurtBox.OnTriggerEnter2DEvent(collision2d =>
 			{
 				this.DestroyGameObjGracefully();

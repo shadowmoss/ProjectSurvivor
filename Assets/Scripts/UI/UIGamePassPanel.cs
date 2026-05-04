@@ -1,18 +1,19 @@
 using UnityEngine;
 using UnityEngine.UI;
 using QFramework;
+using System;
 using UnityEngine.SceneManagement;
 
 namespace QFramework.Example
 {
-	public class UIGameOverPanelData : UIPanelData
+	public class UIGamePassPanelData : UIPanelData
 	{
 	}
-	public partial class UIGameOverPanel : UIPanel
+	public partial class UIGamePassPanel : UIPanel
 	{
 		protected override void OnInit(IUIData uiData = null)
 		{
-			mData = uiData as UIGameOverPanelData ?? new UIGameOverPanelData();
+			mData = uiData as UIGamePassPanelData ?? new UIGamePassPanelData();
 			// please add init code here
 			ActionKit.OnUpdate.Register(() =>
 			{
@@ -22,7 +23,6 @@ namespace QFramework.Example
 					SceneManager.LoadScene("SampleScene");
 				}
 			}).UnRegisterWhenGameObjectDestroyed(gameObject);
-			
 		}
 		
 		protected override void OnOpen(IUIData uiData = null)

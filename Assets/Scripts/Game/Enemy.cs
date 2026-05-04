@@ -7,6 +7,7 @@ namespace QFramework.Example
 {
 	public partial class Enemy : ViewController
 	{
+		public float HP = 3;
 		public float moveSpeed = 2.0f;
 		void Start()
 		{
@@ -14,10 +15,17 @@ namespace QFramework.Example
 		}
         void Update()
         {
+			// 每个Enemy向着Player移动的逻辑
 			if (Player.Default)
 			{
 				var direction = (Player.Default.transform.position - this.transform.position).normalized;
 				this.transform.Translate(direction *moveSpeed* Time.deltaTime);
+			}
+
+			if(HP <= 0)
+			{
+				UIKit.OpenPanel<UIGamePassPanel>();
+				this.DestroyGameObjGracefully();
 			}
         }
     }
