@@ -18,9 +18,12 @@ MonoBehaviour:
     GameObject: {fileID: 0}
     From: 0
     NameToFullName: []
-    BindInfos: []
-    ScriptsFolder: Assets/Scripts/Game/Ability
-    ClassName: SimpleAbility
+    BindInfos:
+    - TypeName: QFramework.Example.Enemy
+      PathToRoot: Enemy
+      MemberName: Enemy
+    ScriptsFolder: Assets/Scripts/Game
+    ClassName: EnemyGenerator
     Namespace: QFramework.Example
     MainCode: 
     DesignerCode: 

@@ -24,8 +24,8 @@ namespace QFramework.Example
 
 			if(HP <= 0)
 			{
-				UIKit.OpenPanel<UIGamePassPanel>();
 				this.DestroyGameObjGracefully();
+				Global.Exp.Value++;
 			}
         }
     }
