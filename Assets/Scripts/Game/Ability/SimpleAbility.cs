@@ -34,7 +34,7 @@ namespace QFramework.Example
 						var enemyRefCache = enemy;
 						ActionKit.Delay(0.3f, () =>
 						{
-							enemyRefCache.HP--;
+							enemyRefCache.HP-= Global.SimpleAbilityDamage.Value;
 							enemyRefCache.Sprite.color = Color.white;
 						}).StartGlobal();
 					}

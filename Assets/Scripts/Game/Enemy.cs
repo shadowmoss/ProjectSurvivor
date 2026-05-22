@@ -12,7 +12,12 @@ namespace QFramework.Example
 		void Start()
 		{
 			// Code Here
+			EnemyGenerator.EnemyCount.Value++;
 		}
+        void OnDestroy()
+        {
+            EnemyGenerator.EnemyCount.Value--;
+        }
         void Update()
         {
 			// 每个Enemy向着Player移动的逻辑

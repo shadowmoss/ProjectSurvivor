@@ -341,7 +341,7 @@ Camera:
   far clip plane: 1000
   field of view: 34
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 8
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -580,6 +580,21 @@ MonoBehaviour:
   PrefabFolder: Assets/Art/Prefab
   ArchitectureFullTypeName: 
   ViewControllerFullTypeName: 
+  mCurrentWaveSeconds: 0
+  enemyWaves:
+  - GenerateDuration: 1
+    EnemyPrefab: {fileID: 1506561536}
+    seconds: 10
+  - GenerateDuration: 0.8
+    EnemyPrefab: {fileID: 1506561536}
+    seconds: 10
+  - GenerateDuration: 0.7
+    EnemyPrefab: {fileID: 1506561536}
+    seconds: 10
+  - GenerateDuration: 0.5
+    EnemyPrefab: {fileID: 1506561536}
+    seconds: 10
+  WaveCount: 0
   Enemy: {fileID: 1506561538}
 --- !u!4 &725250365
 Transform:
