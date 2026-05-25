@@ -16,6 +16,7 @@ namespace QFramework.Example
 		}
         void OnDestroy()
         {
+			// 这里出现Bug了，SampleScene被重新加载时，之前的Enmey对象被销毁，但是我们的Global数据重置方法再这些Enmey对象销毁之前。
             EnemyGenerator.EnemyCount.Value--;
         }
         void Update()
@@ -30,8 +31,27 @@ namespace QFramework.Example
 			if(HP <= 0)
 			{
 				this.DestroyGameObjGracefully();
-				Global.Exp.Value++;
+				
+				// Global.Exp.Value++;
+
+				// 敌人掉落经验值功能
 			}
         }
+		bool mIgnoreHurt = false;
+
+		public void Hurt(float damage)
+		{
+			if(mIgnoreHurt)
+			{
+				return;
+			}
+			Sprite.color = Color.red;
+			ActionKit.Delay(0.2f, () =>
+			{
+				HP-= Global.SimpleAbilityDamage.Value;
+				Sprite.color = Color.white;
+				mIgnoreHurt = false;
+			}).Start(this);
+		}
     }
 }

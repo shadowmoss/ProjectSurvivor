@@ -16,7 +16,7 @@ namespace QFramework.Example
         void Update()
         {
             mCurrentSeconds += Time.deltaTime;
-			if (mCurrentSeconds >= 1.5f)
+			if (mCurrentSeconds >= Global.SimpleAbilityDuration.Value)
 			{
 				mCurrentSeconds = 0;
 				// 找到当前场景中的Enemy脚本
@@ -29,14 +29,7 @@ namespace QFramework.Example
 					
 					if(distance <= 5)
 					{
-						enemy.Sprite.color = Color.red;
-						// 这里缓存一次多一个引用的原因我不太清楚。
-						var enemyRefCache = enemy;
-						ActionKit.Delay(0.3f, () =>
-						{
-							enemyRefCache.HP-= Global.SimpleAbilityDamage.Value;
-							enemyRefCache.Sprite.color = Color.white;
-						}).StartGlobal();
+						enemy.Hurt(Global.SimpleAbilityDamage.Value);
 					}
 				}
 			}

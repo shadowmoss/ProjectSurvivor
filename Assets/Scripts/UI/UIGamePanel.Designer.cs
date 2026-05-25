@@ -5,7 +5,7 @@ using QFramework;
 
 namespace QFramework.Example
 {
-	// Generate Id:44599810-6b39-496f-9279-3317c016252c
+	// Generate Id:ef6d28fb-7f26-4baf-bcb7-3a7d2cb03bc5
 	public partial class UIGamePanel
 	{
 		public const string Name = "UIGamePanel";
@@ -15,11 +15,15 @@ namespace QFramework.Example
 		[SerializeField]
 		public UnityEngine.UI.Text LevelText;
 		[SerializeField]
-		public UnityEngine.UI.Button BtnUpgrade;
-		[SerializeField]
 		public UnityEngine.UI.Text TimeText;
 		[SerializeField]
 		public UnityEngine.UI.Text EnemyCountText;
+		[SerializeField]
+		public RectTransform UpgrateRoot;
+		[SerializeField]
+		public UnityEngine.UI.Button BtnUpgrade;
+		[SerializeField]
+		public UnityEngine.UI.Button BtnSimpleDurationUpgrade;
 		
 		private UIGamePanelData mPrivateData = null;
 		
@@ -27,9 +31,11 @@ namespace QFramework.Example
 		{
 			ExpText = null;
 			LevelText = null;
-			BtnUpgrade = null;
 			TimeText = null;
 			EnemyCountText = null;
+			UpgrateRoot = null;
+			BtnUpgrade = null;
+			BtnSimpleDurationUpgrade = null;
 			
 			mData = null;
 		}

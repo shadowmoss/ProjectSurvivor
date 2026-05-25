@@ -10,6 +10,7 @@ public class Global
     public static BindableProperty<int> Level = new BindableProperty<int>(1);
     public static BindableProperty<float> SimpleAbilityDamage = new BindableProperty<float>(1);
     public static BindableProperty<float> CurrentSeconds = new BindableProperty<float>(0);
+    public static BindableProperty<float> SimpleAbilityDuration = new BindableProperty<float>(1.5f);
 
     public static void ResetData()
     {
@@ -17,6 +18,11 @@ public class Global
         Level.Value = 1;
         CurrentSeconds.Value = 0;
         SimpleAbilityDamage.Value = 1;
+        SimpleAbilityDuration.Value = 1.5f;
         EnemyGenerator.EnemyCount.Value = 0;
+    }
+    public static int ExpToNextLevel()
+    {
+        return Level.Value * 5;
     }
 }

@@ -29,7 +29,7 @@ namespace QFramework.Example
 			// please add init code here
 			Global.Exp.RegisterWithInitValue(exp =>
 			{
-				ExpText.text = "Exp:"+exp;
+				ExpText.text = "Exp:"+"("+exp+"/"+Global.ExpToNextLevel()+")";
 			}).UnRegisterWhenGameObjectDestroyed(gameObject);
 
 			Global.Level.RegisterWithInitValue(level =>
@@ -40,25 +40,32 @@ namespace QFramework.Example
 			Global.Level.Register(lv =>
 			{
 				Time.timeScale = 0;
-				BtnUpgrade.Show();
+				UpgrateRoot.Show();
 			}).UnRegisterWhenGameObjectDestroyed(gameObject);
 
 			Global.Exp.RegisterWithInitValue(exp =>
 			{
-				if (exp >= 5)
+				if (exp >= Global.ExpToNextLevel())
 				{
-					Global.Exp.Value -= 5;
+					Global.Exp.Value -= Global.ExpToNextLevel();
 					Global.Level.Value++;
 				}
 			}).UnRegisterWhenGameObjectDestroyed(gameObject);
+			
+			UpgrateRoot.Hide();
 
-			BtnUpgrade.Hide();
+			BtnSimpleDurationUpgrade.onClick.AddListener(() =>
+			{
+				Time.timeScale = 1.0f;
+				Global.SimpleAbilityDuration.Value *= 0.8f;
+				UpgrateRoot.Hide();
+			});
 
 			BtnUpgrade.onClick.AddListener(() =>
 			{
 				Time.timeScale = 1.0f;
 				Global.SimpleAbilityDamage.Value *= 1.5f;
-				BtnUpgrade.Hide();
+				UpgrateRoot.Hide();
 			});
 
 			var enemyGenerator = FindObjectOfType<EnemyGenerator>();

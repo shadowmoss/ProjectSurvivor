@@ -25,11 +25,18 @@ namespace QFramework.Example
 			// OnTriggerEnter2DEvent这个是EventKit当中的collision2d。
 			HurtBox.OnTriggerEnter2DEvent(collision2d =>
 			{
-				this.DestroyGameObjGracefully();
+				HitBox hitBox = collision2d.GetComponent<HitBox>();
+				if (hitBox)
+				{
+					if(hitBox.Owner.CompareTag("Enemy")){
+						this.DestroyGameObjGracefully();
 
-				// Player has been Destroyed so We Open UIGameOverPanel
-				ResKit.Init();
-				UIKit.OpenPanel<UIGameOverPanel>();
+						// Player has been Destroyed so We Open UIGameOverPanel
+						ResKit.Init();
+						UIKit.OpenPanel<UIGameOverPanel>();
+					}
+				}
+				
 			}).UnRegisterWhenGameObjectDestroyed(gameObject);
 		}
         void Update()

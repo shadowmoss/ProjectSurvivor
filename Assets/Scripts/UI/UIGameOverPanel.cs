@@ -13,6 +13,7 @@ namespace QFramework.Example
 		protected override void OnInit(IUIData uiData = null)
 		{
 			mData = uiData as UIGameOverPanelData ?? new UIGameOverPanelData();
+			Time.timeScale = 0;
 			// please add init code here
 			ActionKit.OnUpdate.Register(() =>
 			{
@@ -20,6 +21,7 @@ namespace QFramework.Example
 				{
 					this.CloseSelf();
 					SceneManager.LoadScene("SampleScene");
+					Global.ResetData();
 				}
 			}).UnRegisterWhenGameObjectDestroyed(gameObject);
 			
@@ -39,6 +41,7 @@ namespace QFramework.Example
 		
 		protected override void OnClose()
 		{
+			Time.timeScale = 1;
 		}
 	}
 }
