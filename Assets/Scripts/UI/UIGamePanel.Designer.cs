@@ -5,7 +5,7 @@ using QFramework;
 
 namespace QFramework.Example
 {
-	// Generate Id:ef6d28fb-7f26-4baf-bcb7-3a7d2cb03bc5
+	// Generate Id:006d9fca-cb41-4b1d-bb07-16e32133a650
 	public partial class UIGamePanel
 	{
 		public const string Name = "UIGamePanel";
@@ -24,6 +24,8 @@ namespace QFramework.Example
 		public UnityEngine.UI.Button BtnUpgrade;
 		[SerializeField]
 		public UnityEngine.UI.Button BtnSimpleDurationUpgrade;
+		[SerializeField]
+		public UnityEngine.UI.Text CoinText;
 		
 		private UIGamePanelData mPrivateData = null;
 		
@@ -36,6 +38,7 @@ namespace QFramework.Example
 			UpgrateRoot = null;
 			BtnUpgrade = null;
 			BtnSimpleDurationUpgrade = null;
+			CoinText = null;
 			
 			mData = null;
 		}

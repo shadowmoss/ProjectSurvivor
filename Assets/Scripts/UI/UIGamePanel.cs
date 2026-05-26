@@ -78,6 +78,13 @@ namespace QFramework.Example
 					UIKit.OpenPanel<UIGamePassPanel>();
 				}
 			}).UnRegisterWhenGameObjectDestroyed(gameObject);
+			
+			Global.Coin.Value = PlayerPrefs.GetInt(nameof(Coin),0);
+			Global.Coin.RegisterWithInitValue(coin =>
+			{
+				PlayerPrefs.SetInt(nameof(Coin),coin);
+				CoinText.text = "Coin:" + coin;
+			}).UnRegisterWhenGameObjectDestroyed(gameObject);
 		}
 		
 		protected override void OnOpen(IUIData uiData = null)

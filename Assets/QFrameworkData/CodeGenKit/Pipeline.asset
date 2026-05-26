@@ -20,7 +20,7 @@ MonoBehaviour:
     NameToFullName: []
     BindInfos: []
     ScriptsFolder: Assets/Scripts/Game
-    ClassName: CollectableArea
+    ClassName: GameStartController
     Namespace: QFramework.Example
     MainCode: 
     DesignerCode: 

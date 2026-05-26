@@ -19,12 +19,19 @@ namespace QFramework.Example
 			{
 				if (Input.GetKeyDown(KeyCode.Space))
 				{
+					Global.ResetData();
 					this.CloseSelf();
 					SceneManager.LoadScene("SampleScene");
-					Global.ResetData();
+					
 				}
 			}).UnRegisterWhenGameObjectDestroyed(gameObject);
-			
+			BtnBackToStart.onClick.AddListener(() =>
+			{
+				Global.ResetData();
+				this.CloseSelf();
+				SceneManager.LoadScene("GameStart");
+				
+			});
 		}
 		
 		protected override void OnOpen(IUIData uiData = null)

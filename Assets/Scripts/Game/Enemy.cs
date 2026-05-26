@@ -35,6 +35,7 @@ namespace QFramework.Example
 				// Global.Exp.Value++;
 
 				// 敌人掉落经验值功能
+				Global.GeneratePowerUp(gameObject);
 			}
         }
 		bool mIgnoreHurt = false;
