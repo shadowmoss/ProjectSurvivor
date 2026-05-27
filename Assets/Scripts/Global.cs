@@ -4,7 +4,7 @@ using QFramework;
 using QFramework.Example;
 using UnityEngine;
 
-public class Global
+public class Global : Architecture<Global>
 {
     public static BindableProperty<int> Coin = new BindableProperty<int>(0);
     public static BindableProperty<int> Exp = new BindableProperty<int>(0);
@@ -20,6 +20,8 @@ public class Global
     [RuntimeInitializeOnLoadMethod]
     public static void AutoInit()
     {
+        ResKit.Init();
+        UIKit.Root.SetResolution(1920,1080,1);
         Global.Coin.Value = PlayerPrefs.GetInt("coin",0);
         
         Global.ExpPercent.Value = PlayerPrefs.GetFloat(nameof(ExpPercent),0.4f);
@@ -46,7 +48,7 @@ public class Global
         CurrentSeconds.Value = 0;
         SimpleAbilityDamage.Value = 1;
         SimpleAbilityDuration.Value = 1.5f;
-        EnemyGenerator.EnemyCount.Value = 0;
+        // EnemyGenerator.EnemyCount.Value = 0;
     }
     public static int ExpToNextLevel()
     {
@@ -71,5 +73,10 @@ public class Global
                 .Position(gameObject.Position())
                 .Show();
         }
+    }
+
+    protected override void Init()
+    {
+        
     }
 }

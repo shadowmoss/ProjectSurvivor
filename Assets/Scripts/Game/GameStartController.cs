@@ -7,11 +7,6 @@ namespace QFramework.Example
 {
 	public partial class GameStartController : ViewController
 	{
-		public void Awake()
-		{
-			// Code Here
-			ResKit.Init();
-		}
 		void Start()
 		{
 			// Code Here

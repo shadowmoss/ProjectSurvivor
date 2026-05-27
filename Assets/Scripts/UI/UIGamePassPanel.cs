@@ -22,7 +22,7 @@ namespace QFramework.Example
 				{
 					Global.ResetData();
 					this.CloseSelf();
-					SceneManager.LoadScene("SampleScene");
+					SceneManager.LoadScene("Game");
 					
 				}
 			}).UnRegisterWhenGameObjectDestroyed(gameObject);

@@ -14,7 +14,7 @@ namespace QFramework.Example
 			mData = uiData as UIGamePanelData ?? new UIGamePanelData();
 			EnemyGenerator.EnemyCount.RegisterWithInitValue(enemyCount =>
 			{
-				EnemyCountText.text = "敌人数量:" + enemyCount;
+				EnemyCountText.text = "Enemy Count:" + enemyCount;
 			}).UnRegisterWhenGameObjectDestroyed(gameObject);
 			Global.CurrentSeconds.RegisterWithInitValue(currentSeconds =>
 			{
@@ -23,7 +23,7 @@ namespace QFramework.Example
 				int currentSecondsInt = Mathf.FloorToInt(currentSeconds);
 				int seconds = currentSecondsInt % 60;
 				int minutes = currentSecondsInt / 60;
-				TimeText.text = "时间:" + $"{minutes}:{seconds}";
+				TimeText.text = "time:" + $"{minutes}:{seconds}";
 				}
 			}).UnRegisterWhenGameObjectDestroyed(gameObject);
 			// please add init code here

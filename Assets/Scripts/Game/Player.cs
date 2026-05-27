@@ -32,7 +32,7 @@ namespace QFramework.Example
 						this.DestroyGameObjGracefully();
 
 						// Player has been Destroyed so We Open UIGameOverPanel
-						ResKit.Init();
+						// ResKit.Init();
 						UIKit.OpenPanel<UIGameOverPanel>();
 					}
 				}

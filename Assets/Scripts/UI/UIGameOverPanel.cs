@@ -19,9 +19,10 @@ namespace QFramework.Example
 			{
 				if (Input.GetKeyDown(KeyCode.Space))
 				{
-					Global.ResetData();
+					
 					this.CloseSelf();
-					SceneManager.LoadScene("SampleScene");
+					SceneManager.LoadScene("Game");
+					Global.ResetData();
 					
 				}
 			}).UnRegisterWhenGameObjectDestroyed(gameObject);
