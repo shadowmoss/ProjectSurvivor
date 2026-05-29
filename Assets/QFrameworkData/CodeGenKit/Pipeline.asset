@@ -18,9 +18,24 @@ MonoBehaviour:
     GameObject: {fileID: 0}
     From: 0
     NameToFullName: []
-    BindInfos: []
+    BindInfos:
+    - TypeName: QFramework.Example.Exp
+      PathToRoot: Exp
+      MemberName: Exp
+    - TypeName: SpriteRenderer
+      PathToRoot: Coin
+      MemberName: Coin
+    - TypeName: CircleCollider2D
+      PathToRoot: HP
+      MemberName: HP
+    - TypeName: SpriteRenderer
+      PathToRoot: Bomb
+      MemberName: Bomb
+    - TypeName: QFramework.Example.GetAllExp
+      PathToRoot: GetAllExp
+      MemberName: GetAllExp
     ScriptsFolder: Assets/Scripts/Game
-    ClassName: GameStartController
+    ClassName: PowerUpManger
     Namespace: QFramework.Example
     MainCode: 
     DesignerCode: 

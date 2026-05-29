@@ -5,20 +5,26 @@ using QFramework;
 // 2.命名空间更改后，生成代码之后，需要把逻辑代码文件（非 Designer）的命名空间手动更改
 namespace QFramework.Example
 {
-	public partial class Exp : ViewController
+	public partial class HP : ViewController
 	{
 		void Start()
 		{
 			// Code Here
 		}
-        void OnTriggerEnter2D(Collider2D collision)
-        {
-			if (collision.GetComponent<CollectableArea>())
+		private void OnTriggerEnter2D(Collider2D other)
+		{
+			if (other.GetComponent<CollectableArea>())
 			{
-				AudioKit.PlaySound("Exp");
-				Global.Exp.Value++;
-				this.DestroyGameObjGracefully();
+				if(Global.HP.Value == Global.MaxHP.Value)
+				{
+					
+				}
+				else
+				{
+					Global.HP.Value++;
+					this.DestroyGameObjGracefully();
+				}
 			}
-        }
-    }
+		}
+	}
 }

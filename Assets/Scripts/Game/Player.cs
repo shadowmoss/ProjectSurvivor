@@ -29,11 +29,20 @@ namespace QFramework.Example
 				if (hitBox)
 				{
 					if(hitBox.Owner.CompareTag("Enemy")){
-						this.DestroyGameObjGracefully();
+						Global.HP.Value--;
+						if(Global.HP.Value <= 0)
+						{
+							this.DestroyGameObjGracefully();
+							AudioKit.PlaySound("Die");
 
-						// Player has been Destroyed so We Open UIGameOverPanel
-						// ResKit.Init();
-						UIKit.OpenPanel<UIGameOverPanel>();
+							// Player has been Destroyed so We Open UIGameOverPanel
+							// ResKit.Init();
+							UIKit.OpenPanel<UIGameOverPanel>();
+						}
+						else
+						{
+							AudioKit.PlaySound("Hurt");
+						}
 					}
 				}
 				

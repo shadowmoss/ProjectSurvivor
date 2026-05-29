@@ -15,6 +15,7 @@ namespace QFramework.Example
 		{
 			if (collision.GetComponent<CollectableArea>())
 			{
+				AudioKit.PlaySound("Coin");
 				Global.Coin.Value++;
 				this.DestroyGameObjGracefully();
 			}

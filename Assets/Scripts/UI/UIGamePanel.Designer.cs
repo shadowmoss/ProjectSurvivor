@@ -5,11 +5,13 @@ using QFramework;
 
 namespace QFramework.Example
 {
-	// Generate Id:006d9fca-cb41-4b1d-bb07-16e32133a650
+	// Generate Id:a0c81dd8-687a-4a01-bb76-5eb7d02d385d
 	public partial class UIGamePanel
 	{
 		public const string Name = "UIGamePanel";
 		
+		[SerializeField]
+		public UnityEngine.UI.Text HPText;
 		[SerializeField]
 		public UnityEngine.UI.Text ExpText;
 		[SerializeField]
@@ -31,6 +33,7 @@ namespace QFramework.Example
 		
 		protected override void ClearUIComponents()
 		{
+			HPText = null;
 			ExpText = null;
 			LevelText = null;
 			TimeText = null;

@@ -1,4 +1,4 @@
-// Generate Id:dc8dde2a-0327-435d-b9fb-e8efbf26ad6b
+// Generate Id:2016413b-197f-4035-8e56-a501dcf6db75
 using UnityEngine;
 
 // 1.请在菜单 编辑器扩展/Namespace Settings 里设置命名空间
@@ -10,6 +10,12 @@ namespace QFramework.Example
 		public QFramework.Example.Exp Exp;
 		
 		public SpriteRenderer Coin;
+		
+		public CircleCollider2D HP;
+		
+		public SpriteRenderer Bomb;
+		
+		public QFramework.Example.GetAllExp GetAllExp;
 		
 	}
 }

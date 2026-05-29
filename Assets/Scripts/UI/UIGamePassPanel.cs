@@ -15,6 +15,7 @@ namespace QFramework.Example
 		{
 			mData = uiData as UIGamePassPanelData ?? new UIGamePassPanelData();
 			Time.timeScale = 0;
+			AudioKit.PlaySound("Game_pass");
 			// please add init code here
 			ActionKit.OnUpdate.Register(() =>
 			{
@@ -23,7 +24,6 @@ namespace QFramework.Example
 					Global.ResetData();
 					this.CloseSelf();
 					SceneManager.LoadScene("Game");
-					
 				}
 			}).UnRegisterWhenGameObjectDestroyed(gameObject);
 			BtnBackToStart.onClick.AddListener(() =>

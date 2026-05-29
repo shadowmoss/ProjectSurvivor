@@ -75,6 +75,10 @@ namespace QFramework.Example
 			}
 			
         }
+		void OnDestroy()
+		{
+			// WaveCount = 0;
+		}
 
     }
 }

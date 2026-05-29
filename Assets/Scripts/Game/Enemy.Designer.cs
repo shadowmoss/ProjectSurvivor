@@ -1,4 +1,4 @@
-// Generate Id:4f628779-9fc6-4bd1-a165-f28a52a4aeea
+// Generate Id:77d578a5-6680-418a-a6af-6956d22dec26
 using UnityEngine;
 
 // 1.请在菜单 编辑器扩展/Namespace Settings 里设置命名空间
@@ -10,6 +10,8 @@ namespace QFramework.Example
 		public SpriteRenderer Sprite;
 		
 		public Transform HitBox;
+		
+		public UnityEngine.Rigidbody2D SelfRigidbody2D;
 		
 	}
 }

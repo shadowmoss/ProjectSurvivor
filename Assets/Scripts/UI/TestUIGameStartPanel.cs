@@ -49,11 +49,13 @@ namespace QFramework.Example
 			{
 				Global.CoinPercent.Value += 0.1f;
 				Global.Coin.Value -= 5;
+				PlayerPrefs.SetInt(nameof(Coin),Global.Coin.Value);
 			});
 			BtnExpPercentUpgrade.onClick.AddListener(() =>
 			{
 				Global.ExpPercent.Value += 0.1f;
 				Global.Coin.Value -= 5;
+				PlayerPrefs.SetInt(nameof(Coin),Global.Coin.Value);
 			});
 			BtnClose.onClick.AddListener(() =>
 			{

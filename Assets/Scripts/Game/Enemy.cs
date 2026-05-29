@@ -19,14 +19,23 @@ namespace QFramework.Example
 			// 这里出现Bug了，SampleScene被重新加载时，之前的Enmey对象被销毁，但是我们的Global数据重置方法再这些Enmey对象销毁之前。
             EnemyGenerator.EnemyCount.Value--;
         }
-        void Update()
-        {
+		void FixedUpdate()
+		{
 			// 每个Enemy向着Player移动的逻辑
 			if (Player.Default)
 			{
 				var direction = (Player.Default.transform.position - this.transform.position).normalized;
-				this.transform.Translate(direction *moveSpeed* Time.deltaTime);
+				SelfRigidbody2D.velocity = direction * moveSpeed;
+				// this.transform.Translate(direction *moveSpeed* Time.deltaTime);
 			}
+			else
+			{
+				SelfRigidbody2D.velocity = Vector2.zero;
+			}
+		}
+        void Update()
+        {
+			
 
 			if(HP <= 0)
 			{
@@ -47,9 +56,10 @@ namespace QFramework.Example
 				return;
 			}
 			Sprite.color = Color.red;
+			AudioKit.PlaySound("Hit");
 			ActionKit.Delay(0.2f, () =>
 			{
-				HP-= Global.SimpleAbilityDamage.Value;
+				HP-= damage;
 				Sprite.color = Color.white;
 				mIgnoreHurt = false;
 			}).Start(this);
