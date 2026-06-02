@@ -12,6 +12,7 @@ namespace QFramework.Example
 		protected override void OnInit(IUIData uiData = null)
 		{
 			mData = uiData as UIGamePanelData ?? new UIGamePanelData();
+			Global.MaxHP.Value = PlayerPrefs.GetInt(nameof(Global.MaxHP),3);
 			// HP
 			Global.HP.RegisterWithInitValue(hp =>
 			{
@@ -75,6 +76,7 @@ namespace QFramework.Example
 				Time.timeScale = 1.0f;
 				Global.SimpleAbilityDuration.Value *= 0.8f;
 				UpgrateRoot.Hide();
+				AudioKit.PlaySound("AbilityLevelUp");
 			});
 
 			BtnUpgrade.onClick.AddListener(() =>
@@ -82,6 +84,7 @@ namespace QFramework.Example
 				Time.timeScale = 1.0f;
 				Global.SimpleAbilityDamage.Value *= 1.5f;
 				UpgrateRoot.Hide();
+				AudioKit.PlaySound("AbilityLevelUp");
 			});
 
 			var enemyGenerator = FindObjectOfType<EnemyGenerator>();
@@ -90,6 +93,7 @@ namespace QFramework.Example
 				Global.CurrentSeconds.Value += Time.deltaTime;
 				if( enemyGenerator.LastWave && enemyGenerator.CurrentWave == null && EnemyGenerator.EnemyCount.Value == 0)
 				{
+					this.CloseSelf();
 					Debug.Log("Game Pass");
 					UIKit.OpenPanel<UIGamePassPanel>();
 				}

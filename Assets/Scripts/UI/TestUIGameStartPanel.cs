@@ -8,7 +8,7 @@ namespace QFramework.Example
 	public class TestUIGameStartPanelData : UIPanelData
 	{
 	}
-	public partial class TestUIGameStartPanel : UIPanel
+	public partial class TestUIGameStartPanel : UIPanel,IController
 	{
 		protected override void OnInit(IUIData uiData = null)
 		{
@@ -29,38 +29,9 @@ namespace QFramework.Example
 			BtnCoinUpgrade.onClick.AddListener(() =>
 			{
 				CoinUpgradePanel.Show();
-				
 			});
-			Global.Coin.RegisterWithInitValue((coin) =>
-			{
-				CoinText.text = $"Coin: {coin}";
-				if(coin >= 5)
-				{
-					BtnCoinPercentUpgrade.Show();
-					BtnExpPercentUpgrade.Show();
-				}
-				else
-				{
-					BtnCoinPercentUpgrade.Hide();
-					BtnExpPercentUpgrade.Hide();
-				}
-			}).UnRegisterWhenGameObjectDestroyed(gameObject);
-			BtnCoinPercentUpgrade.onClick.AddListener(() =>
-			{
-				Global.CoinPercent.Value += 0.1f;
-				Global.Coin.Value -= 5;
-				PlayerPrefs.SetInt(nameof(Coin),Global.Coin.Value);
-			});
-			BtnExpPercentUpgrade.onClick.AddListener(() =>
-			{
-				Global.ExpPercent.Value += 0.1f;
-				Global.Coin.Value -= 5;
-				PlayerPrefs.SetInt(nameof(Coin),Global.Coin.Value);
-			});
-			BtnClose.onClick.AddListener(() =>
-			{
-				CoinUpgradePanel.Hide();
-			});
+			
+			this.GetSystem<CoinUpgradeSystem>().Say();
 		}
 		
 		protected override void OnOpen(IUIData uiData = null)
@@ -78,5 +49,10 @@ namespace QFramework.Example
 		protected override void OnClose()
 		{
 		}
-	}
+
+        public IArchitecture GetArchitecture()
+        {
+            return Global.Interface;
+        }
+    }
 }

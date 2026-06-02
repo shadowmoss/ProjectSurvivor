@@ -5,7 +5,7 @@ using QFramework;
 
 namespace QFramework.Example
 {
-	// Generate Id:e8f1c7b1-0ce3-4494-b376-80d6688dacb4
+	// Generate Id:7c12609e-93a0-4064-8527-f9c825aa2346
 	public partial class TestUIGameStartPanel
 	{
 		public const string Name = "TestUIGameStartPanel";
@@ -13,32 +13,17 @@ namespace QFramework.Example
 		[SerializeField]
 		public UnityEngine.UI.Button BtnCoinUpgrade;
 		[SerializeField]
-		public RectTransform CoinUpgradePanel;
-		[SerializeField]
-		public UnityEngine.UI.Image BG;
-		[SerializeField]
-		public UnityEngine.UI.Button BtnCoinPercentUpgrade;
-		[SerializeField]
-		public UnityEngine.UI.Button BtnExpPercentUpgrade;
-		[SerializeField]
-		public UnityEngine.UI.Button BtnClose;
-		[SerializeField]
-		public UnityEngine.UI.Text CoinText;
-		[SerializeField]
 		public UnityEngine.UI.Button BtnStartGame;
+		[SerializeField]
+		public CoinUpgradePanel CoinUpgradePanel;
 		
 		private TestUIGameStartPanelData mPrivateData = null;
 		
 		protected override void ClearUIComponents()
 		{
 			BtnCoinUpgrade = null;
-			CoinUpgradePanel = null;
-			BG = null;
-			BtnCoinPercentUpgrade = null;
-			BtnExpPercentUpgrade = null;
-			BtnClose = null;
-			CoinText = null;
 			BtnStartGame = null;
+			CoinUpgradePanel = null;
 			
 			mData = null;
 		}

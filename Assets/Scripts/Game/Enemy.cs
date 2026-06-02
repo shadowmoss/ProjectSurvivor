@@ -55,6 +55,7 @@ namespace QFramework.Example
 			{
 				return;
 			}
+			FloatingTextController.Play(transform.position,""+damage);
 			Sprite.color = Color.red;
 			AudioKit.PlaySound("Hit");
 			ActionKit.Delay(0.2f, () =>

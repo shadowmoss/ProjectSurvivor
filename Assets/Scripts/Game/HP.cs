@@ -23,6 +23,7 @@ namespace QFramework.Example
 				{
 					Global.HP.Value++;
 					this.DestroyGameObjGracefully();
+					AudioKit.PlaySound("Hp");
 				}
 			}
 		}

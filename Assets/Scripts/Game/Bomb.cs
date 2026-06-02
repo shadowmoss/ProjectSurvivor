@@ -21,6 +21,8 @@ namespace QFramework.Example
 					enemy.Hurt(enemy.HP);
 				}
 			}
+			AudioKit.PlaySound("bomb");
+			CameraController.Shake();
 			this.DestroyGameObjGracefully();
 		}
 	}

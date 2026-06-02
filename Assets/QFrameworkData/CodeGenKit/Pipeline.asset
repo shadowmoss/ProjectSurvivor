@@ -19,23 +19,11 @@ MonoBehaviour:
     From: 0
     NameToFullName: []
     BindInfos:
-    - TypeName: QFramework.Example.Exp
-      PathToRoot: Exp
-      MemberName: Exp
-    - TypeName: SpriteRenderer
-      PathToRoot: Coin
-      MemberName: Coin
-    - TypeName: CircleCollider2D
-      PathToRoot: HP
-      MemberName: HP
-    - TypeName: SpriteRenderer
-      PathToRoot: Bomb
-      MemberName: Bomb
-    - TypeName: QFramework.Example.GetAllExp
-      PathToRoot: GetAllExp
-      MemberName: GetAllExp
+    - TypeName: RectTransform
+      PathToRoot: FloatingText
+      MemberName: FloatingText
     ScriptsFolder: Assets/Scripts/Game
-    ClassName: PowerUpManger
+    ClassName: FloatingTextController
     Namespace: QFramework.Example
     MainCode: 
     DesignerCode: 
