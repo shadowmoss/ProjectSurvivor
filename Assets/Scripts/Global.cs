@@ -24,7 +24,7 @@ namespace QFramework.Example
         public static void AutoInit()
         {
             ResKit.Init();
-            UIKit.Root.SetResolution(1280,720,1);
+            UIKit.Root.SetResolution(1920,1080,1);
 
             Global.MaxHP.Value = PlayerPrefs.GetInt(nameof(MaxHP),3);
             HP.Value = MaxHP.Value;
