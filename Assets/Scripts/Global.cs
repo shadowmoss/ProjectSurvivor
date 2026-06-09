@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using QFramework;
 using QFramework.Example;
+using Unity.VisualScripting;
 using UnityEngine;
 namespace QFramework.Example
 {
@@ -60,6 +61,7 @@ namespace QFramework.Example
             SimpleAbilityDamage.Value = 1;
             SimpleAbilityDuration.Value = 1.5f;
             // EnemyGenerator.EnemyCount.Value = 0;
+            Interface.GetSystem<ExpUpgradeSystem>().ResetData();
         }
         public static int ExpToNextLevel()
         {
@@ -69,6 +71,7 @@ namespace QFramework.Example
         {
             float expPercent = Random.Range(0, 1f);
 
+            // Debug.Log($"ExpPercent:{expPercent} Global.ExpPercent.Value:{Global.ExpPercent.Value}}}");
             if (expPercent < Global.ExpPercent.Value)
             {
                 PowerUpManger.Default.Exp.Instantiate()
@@ -78,7 +81,7 @@ namespace QFramework.Example
             }
 
             float coinPercent = Random.Range(0,1f);
-
+            // Debug.Log($"CoinPercent:{coinPercent} Global.CoinPercent.Value:{Global.CoinPercent.Value}");
             if(coinPercent < Global.CoinPercent.Value)
             {
                 PowerUpManger.Default.Coin.Instantiate()
@@ -114,7 +117,9 @@ namespace QFramework.Example
 
         protected override void Init()
         {
+            this.RegisterSystem(new SaveSystem());
             this.RegisterSystem(new CoinUpgradeSystem());
+            this.RegisterSystem(new ExpUpgradeSystem());
         }
     }
 

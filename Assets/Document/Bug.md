@@ -8,3 +8,9 @@ Game场景加载之时，会导致当前场景中的Enemy调用其OnDestroy方�
 * Solution在EnemyGenerator的OnDestroy方法中将WaveCount变量进行重置
 2. 在游戏通关之后选择回到主界面，进行能力升级之后，并没有使得Coin的金币数量减少
 * 在PoweUp按钮点击事件之后将数值进行一次Save
+# 2026/06/04 金币升级面板在金币数量达到了，指定数量之后不显示
+* 已修改
+# 2026/06/05 金币升级之后，并没有存档之前已经升级过的内容了。这个和金币升级的事件监听精细化到了，单个选项有关。
+# 2026/06/05 经验值达到之后，经验值升级面板的内容提示对象未指向一个对象。
+* 已解决，主要问题在于，ExpUpdatePanel面板在GameScene界面处于disactive状态，导致.Show()时，会提示，GameObject不存在。
+* 在ExpUpdatePanel中，创建具体的ExpUpdateItem项时，修改显示文字的需要到GetComponentInChild()中获取，结果我直接在Button组件当中进行获取Text，导致报错。

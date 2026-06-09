@@ -4,7 +4,8 @@ namespace QFramework.Example
 {
     public class CoinUpgradeItem
     {
-        public bool UpgradeFinish {get;private set;} = false;
+        public EasyEvent OnChanged = new EasyEvent();
+        public bool UpgradeFinish {get; set;} = false;
         public string Key{get;private set;}
         public string Description{get;private set;}
         public int Price {get;private set;}
@@ -12,6 +13,7 @@ namespace QFramework.Example
         {
             mOnUpgrade?.Invoke(this);
             UpgradeFinish = true;
+            OnChanged.Trigger();
             CoinUpgradeSystem.OnCoinUpgradeSystemChanged.Trigger();
         }
         public bool ConditionCheck()

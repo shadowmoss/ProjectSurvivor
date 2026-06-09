@@ -23,8 +23,6 @@ namespace QFramework.Example
 		}
 		public static void Play(Vector2 position,string text)
 		{
-			Debug.Log(position);
-			Debug.Log("Voke FloatingText");
 			mDefault.FloatingText.InstantiateWithParent(mDefault.transform)
 			.Position(position.x,position.y)
 			.Self(f =>
@@ -36,7 +34,6 @@ namespace QFramework.Example
 				ActionKit.Sequence()
 					.Lerp(0, 0.5f, 0.5f, (p) =>
 					{
-						 Debug.Log("执行Lerp");
 						f.PositionY(positionY + p * 0.8f);
 						textComp.LocalScaleX(Mathf.Clamp01(p * 0.03f));
 						textComp.LocalScaleY(Mathf.Clamp01(p * 0.03f));
@@ -44,11 +41,9 @@ namespace QFramework.Example
 					.Delay(0.5f)
 					.Lerp(1.0f, 0, 0.3f, (p) =>
 					{
-						Debug.Log("执行Lerp2");
 						textComp.ColorAlpha(p);
 					}, () =>
 					{
-						Debug.Log("执行销毁Lerp");
 						textTrans.DestroyGameObjGracefully();
 					}).Start(textComp);
 			}).Show();

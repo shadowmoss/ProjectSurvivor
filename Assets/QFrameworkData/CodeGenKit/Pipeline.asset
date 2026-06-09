@@ -19,11 +19,17 @@ MonoBehaviour:
     From: 0
     NameToFullName: []
     BindInfos:
-    - TypeName: RectTransform
-      PathToRoot: FloatingText
-      MemberName: FloatingText
+    - TypeName: SpriteRenderer
+      PathToRoot: Sprite
+      MemberName: Sprite
+    - TypeName: Transform
+      PathToRoot: HitBox
+      MemberName: HitBox
+    - TypeName: CircleCollider2D
+      PathToRoot: HurtBox
+      MemberName: HurtBox
     ScriptsFolder: Assets/Scripts/Game
-    ClassName: FloatingTextController
+    ClassName: EnemyMiniBoss
     Namespace: QFramework.Example
     MainCode: 
     DesignerCode: 

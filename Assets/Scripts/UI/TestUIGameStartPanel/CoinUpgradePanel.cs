@@ -13,43 +13,58 @@ namespace QFramework.Example
 {
 	public partial class CoinUpgradePanel : UIElement,IController
 	{
-		public void Refresh()
-		{
-			CoinUpgradeItemRoot.DestroyChildren();
-			foreach(var coinUpgradeItem in this.GetSystem<CoinUpgradeSystem>().Items.Where(item=>item.ConditionCheck()))
-			{
-				CoinUpgradeItemTemplate.InstantiateWithParent(CoinUpgradeItemRoot)
-				.Self(self =>
-				{
-					var itemCache = coinUpgradeItem;
-					self.GetComponentInChildren<Text>().text = itemCache.Description + $" (Price: {itemCache.Price})";
-					self.onClick.AddListener(() =>
-					{
-						itemCache.Upgrade();
-						AudioKit.PlaySound("AbilityLevelUp");
-					});
-					Button selfCache = self;
-					
-					Global.Coin.RegisterWithInitValue(coin =>
-					{
-						if(Global.Coin.Value <= itemCache.Price)
-						{
-							self.interactable = false;
-						}
-						else
-						{
-							self.interactable = true;
-						}
-					}).UnRegisterWhenGameObjectDestroyed(selfCache);
-				}).Show();
-			}
-		}
 		private void Awake()
 		{
 			CoinUpgradeItemTemplate.Hide();
-			CoinUpgradeSystem.OnCoinUpgradeSystemChanged.Register(()=>{
-				Refresh();
-			}).UnRegisterWhenGameObjectDestroyed(this);
+			foreach(var coinUpgradeItem in this.GetSystem<CoinUpgradeSystem>().Items.Where(item=>!item.UpgradeFinish))
+				{
+					CoinUpgradeItemTemplate.InstantiateWithParent(CoinUpgradeItemRoot)
+					.Self(self =>
+					{
+						var itemCache = coinUpgradeItem;
+						self.GetComponentInChildren<Text>().text = itemCache.Description + $" (Price: {itemCache.Price})";
+						self.onClick.AddListener(() =>
+						{
+							itemCache.Upgrade();
+							AudioKit.PlaySound("AbilityLevelUp");
+						});
+						Button selfCache = self;
+						coinUpgradeItem.OnChanged.Register(() =>
+						{
+							if(itemCache.ConditionCheck())
+							{
+								selfCache.Show();
+							}
+							else
+							{
+								selfCache.Hide();
+							}
+						}).UnRegisterWhenGameObjectDestroyed(selfCache);
+
+							if(itemCache.ConditionCheck())
+							{
+								selfCache.Show();
+							}
+							else
+							{
+								selfCache.Hide();
+							}
+
+						Global.Coin.RegisterWithInitValue(coin =>
+						{
+							if(Global.Coin.Value < itemCache.Price)
+							{
+								self.interactable = false;
+							}
+							else
+							{
+								self.interactable = true;
+							}
+						}).UnRegisterWhenGameObjectDestroyed(selfCache);
+					});
+				}
+
+
 			Global.Coin.Value = PlayerPrefs.GetInt(nameof(Coin),0);
 			Global.Coin.RegisterWithInitValue(coin =>
 			{

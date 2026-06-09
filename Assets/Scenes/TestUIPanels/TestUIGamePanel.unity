@@ -756,6 +756,54 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1215098868}
     m_Modifications:
+    - target: {fileID: 673682557190295795, guid: c20b7c7fdb202406487cfd8eb8310de3, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 673682557190295795, guid: c20b7c7fdb202406487cfd8eb8310de3, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 673682557190295795, guid: c20b7c7fdb202406487cfd8eb8310de3, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 673682557190295795, guid: c20b7c7fdb202406487cfd8eb8310de3, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 791233185276639218, guid: c20b7c7fdb202406487cfd8eb8310de3, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 791233185276639218, guid: c20b7c7fdb202406487cfd8eb8310de3, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 791233185276639218, guid: c20b7c7fdb202406487cfd8eb8310de3, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 791233185276639218, guid: c20b7c7fdb202406487cfd8eb8310de3, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1152652665707601757, guid: c20b7c7fdb202406487cfd8eb8310de3, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1152652665707601757, guid: c20b7c7fdb202406487cfd8eb8310de3, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1152652665707601757, guid: c20b7c7fdb202406487cfd8eb8310de3, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1152652665707601757, guid: c20b7c7fdb202406487cfd8eb8310de3, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3633201518568562048, guid: c20b7c7fdb202406487cfd8eb8310de3, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -782,11 +830,35 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3633201518568562048, guid: c20b7c7fdb202406487cfd8eb8310de3, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 24.1
+      value: 24.099976
       objectReference: {fileID: 0}
     - target: {fileID: 3633201518568562048, guid: c20b7c7fdb202406487cfd8eb8310de3, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -168.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4610188483516556386, guid: c20b7c7fdb202406487cfd8eb8310de3, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 23
+      objectReference: {fileID: 0}
+    - target: {fileID: 4610561820494985027, guid: c20b7c7fdb202406487cfd8eb8310de3, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4773668388641639574, guid: c20b7c7fdb202406487cfd8eb8310de3, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4773668388641639574, guid: c20b7c7fdb202406487cfd8eb8310de3, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4773668388641639574, guid: c20b7c7fdb202406487cfd8eb8310de3, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4773668388641639574, guid: c20b7c7fdb202406487cfd8eb8310de3, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6513265470612360958, guid: c20b7c7fdb202406487cfd8eb8310de3, type: 3}
       propertyPath: m_FontData.m_MinSize

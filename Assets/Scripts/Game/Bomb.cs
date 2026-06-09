@@ -13,6 +13,10 @@ namespace QFramework.Example
 		}
 		private void OnTriggerEnter2D(Collider2D other)
 		{
+			if (!other.GetComponent<CollectableArea>())
+			{
+				return;
+			}
 			foreach(var enemyObj in GameObject.FindGameObjectsWithTag("Enemy"))
 			{
 				 var enemy = enemyObj.GetComponent<Enemy>();

@@ -62,30 +62,16 @@ namespace QFramework.Example
 				LevelText.text = "Level:"+level;
 			}).UnRegisterWhenGameObjectDestroyed(gameObject);
 
+			ExpUpgradePanel.Hide();
 			Global.Level.Register(lv =>
 			{
 				Time.timeScale = 0;
-				UpgrateRoot.Show();
+				// UpgrateRoot.Show();
+				ExpUpgradePanel.Show();
 				AudioKit.PlaySound("Level_up");
 			}).UnRegisterWhenGameObjectDestroyed(gameObject);
 
-			UpgrateRoot.Hide();
-
-			BtnSimpleDurationUpgrade.onClick.AddListener(() =>
-			{
-				Time.timeScale = 1.0f;
-				Global.SimpleAbilityDuration.Value *= 0.8f;
-				UpgrateRoot.Hide();
-				AudioKit.PlaySound("AbilityLevelUp");
-			});
-
-			BtnUpgrade.onClick.AddListener(() =>
-			{
-				Time.timeScale = 1.0f;
-				Global.SimpleAbilityDamage.Value *= 1.5f;
-				UpgrateRoot.Hide();
-				AudioKit.PlaySound("AbilityLevelUp");
-			});
+			
 
 			var enemyGenerator = FindObjectOfType<EnemyGenerator>();
 			ActionKit.OnUpdate.Register(() =>
