@@ -5,10 +5,11 @@ using QFramework;
 // 2.命名空间更改后，生成代码之后，需要把逻辑代码文件（非 Designer）的命名空间手动更改
 namespace QFramework.Example
 {
-	public partial class Enemy : ViewController
+	public partial class Enemy : ViewController,IEnemy
 	{
 		public float HP = 3;
 		public float moveSpeed = 2.0f;
+		public Color DissolveColor = Color.yellow;
 		void Start()
 		{
 			// Code Here
@@ -42,7 +43,7 @@ namespace QFramework.Example
 				this.DestroyGameObjGracefully();
 				
 				// Global.Exp.Value++;
-
+				FxController.Play(Sprite,DissolveColor);
 				// 敌人掉落经验值功能
 				Global.GeneratePowerUp(gameObject);
 			}
@@ -65,5 +66,15 @@ namespace QFramework.Example
 				mIgnoreHurt = false;
 			}).Start(this);
 		}
+
+        public void SetHpScale(float hPScale)
+        {
+            HP *= hPScale;
+        }
+
+        public void SetSpeedScale(float speedScale)
+        {
+			moveSpeed *= speedScale;
+        }
     }
 }

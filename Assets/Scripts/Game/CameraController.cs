@@ -10,6 +10,8 @@ namespace QFramework.Example
 		private Vector2 mTargetPosition = Vector2.zero;
 
 		private static CameraController mDefault = null;
+		public static Transform LBTrans => mDefault.LB;
+		public static Transform RTTrans => mDefault.RT;
 		private void Awake()
 		{
 			mDefault = this;
@@ -38,6 +40,7 @@ namespace QFramework.Example
 			// Code Here
 			if (Player.Default)
 			{
+				
 				mTargetPosition = Player.Default.transform.position;
 				mCurrentCameraPos.x = (1.0f - Mathf.Exp(-Time.deltaTime * 20)).Lerp(transform.position.x,mTargetPosition.x);
 				mCurrentCameraPos.y = (1.0f - Mathf.Exp(-Time.deltaTime * 20)).Lerp(transform.position.y,mTargetPosition.y);

@@ -21,6 +21,7 @@ namespace QFramework.Example
 				mCurrentSeconds = 0;
 				// 找到当前场景中的Enemy脚本
 				var enemies =  FindObjectsByType<Enemy>(FindObjectsInactive.Exclude,FindObjectsSortMode.None);
+				var enemyMiniBosses	= FindObjectsByType<EnemyMiniBoss>(FindObjectsInactive.Exclude,FindObjectsSortMode.None);
 
 				// 计算每个找到的Enemy脚本的gameObject距离当前Player的距离
 				foreach(var enemy in enemies)
@@ -30,6 +31,15 @@ namespace QFramework.Example
 					if(distance <= 5)
 					{
 						enemy.Hurt(Global.SimpleAbilityDamage.Value);
+					}
+				}
+				foreach(var boss in enemyMiniBosses)
+				{
+					var distance = (Player.Default.transform.position - boss.transform.position).magnitude;
+					
+					if(distance <= 5)
+					{
+						boss.Hurt(Global.SimpleAbilityDamage.Value);
 					}
 				}
 			}

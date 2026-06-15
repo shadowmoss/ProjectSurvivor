@@ -11,13 +11,27 @@ namespace QFramework.Example
 		{
 			Following_Player,
 			Warning,
-			Dash
+			Dash,
+			Wait
 		}
 		public float speed = 1.2f;
-		public int HP = 30;
-        public void Hurt()
+		public float HP = 30;
+		bool mIgnoreHurt = false;
+        public void Hurt(float damage)
         {
-            
+			if (mIgnoreHurt)
+			{
+				return;
+			}
+			FloatingTextController.Play(transform.position,""+damage);
+			Sprite.color = Color.red;
+			AudioKit.PlaySound("Hit");
+			ActionKit.Delay(0.2f, () =>
+			{
+				HP -= damage;
+				Sprite.color = Color.white;
+				mIgnoreHurt = false;
+			}).Start(this);
         }
 		private FSM<State> enemyState = new FSM<State>();
         void Start()
@@ -44,28 +58,39 @@ namespace QFramework.Example
 			enemyState.State(State.Warning)
 				.OnEnter(() =>
 				{
-					Debug.Log("进入了Warning状态");
 					SelfRigidbody2D.velocity = Vector2.zero;
 				})
 				.OnUpdate(() =>
 				{
-					if(enemyState.FrameCountOfCurrentState / 60 >= 2)
+					// Construct a Linear Approximate function try it
+					// when get colser and colser. the color change more frequently
+					long frame = 3 + (60*3 - enemyState.FrameCountOfCurrentState)/ 10;
+					if (enemyState.FrameCountOfCurrentState / frame % 2 == 0)
+					{
+						Sprite.color = Color.red;
+					}
+					else
+					{
+						Sprite.color = Color.white;
+					}
+					if(enemyState.FrameCountOfCurrentState >= 60 * 3)
 					{
 						enemyState.ChangeState(State.Dash);
 					}
+				}).OnExit(() =>
+				{
+					Sprite.color = Color.white;
 				});
 				float startDistance = 0;
 			enemyState.State(State.Dash)
 				.OnEnter(() =>
 				{
-					Debug.Log("进入了Dash状态");
 					if (Player.Default)
 					{
 						Vector3 direction = (Player.Default.Position() - this.Position()).normalized;
 						startDistance = (Player.Default.Position() - this.Position()).magnitude;
 						Debug.Log("Boss Dash start Distance: " + startDistance);
-						SelfRigidbody2D.velocity = direction * 5;
-						
+						SelfRigidbody2D.velocity = direction * speed;
 					}
 				})
 				.OnUpdate(() =>
@@ -73,9 +98,22 @@ namespace QFramework.Example
 					if((Player.Default.Position() - this.Position()).magnitude >=  startDistance)
 						{
 							Debug.Log("Curent Boss And Player Distance hit the State Change Standard");
-							enemyState.ChangeState(State.Following_Player);
+							enemyState.ChangeState(State.Wait);
 						}
 				});
+			enemyState.State(State.Wait)
+			.OnEnter(() =>
+			{
+				Debug.Log("进入到Wait状态");
+				SelfRigidbody2D.velocity = Vector2.zero;
+			})
+			.OnUpdate(() =>
+			{
+				if (enemyState.FrameCountOfCurrentState == 30)
+				{
+					enemyState.ChangeState(State.Following_Player);
+				}
+			});
 			enemyState.StartState(State.Following_Player);
 		}
         void OnDestroy()
@@ -89,6 +127,16 @@ namespace QFramework.Example
         public void FixedUpdate()
         {
             enemyState.FixedUpdate();
+        }
+
+        public void SetHpScale(float hPScale)
+        {
+            HP *= hPScale;
+        }
+
+        public void SetSpeedScale(float speedScale)
+        {
+            speed *= speedScale;
         }
     }
 }

@@ -50,7 +50,7 @@ namespace QFramework.Example
 								}).UnRegisterWhenGameObjectDestroyed(self);
 								ActionKit.OnUpdate.Register(() =>
 								{
-									if((Player.Default.Position()-enemy.Position()).magnitude > 15)
+									if((Player.Default.Position()-self.Position()).magnitude > 15)
 									{
 										self.DestroyGameObjGracefully();
 									}

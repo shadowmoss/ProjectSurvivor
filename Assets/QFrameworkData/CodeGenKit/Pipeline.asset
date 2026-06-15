@@ -20,16 +20,10 @@ MonoBehaviour:
     NameToFullName: []
     BindInfos:
     - TypeName: SpriteRenderer
-      PathToRoot: Sprite
-      MemberName: Sprite
-    - TypeName: Transform
-      PathToRoot: HitBox
-      MemberName: HitBox
-    - TypeName: CircleCollider2D
-      PathToRoot: HurtBox
-      MemberName: HurtBox
+      PathToRoot: EnemyDieFx
+      MemberName: EnemyDieFx
     ScriptsFolder: Assets/Scripts/Game
-    ClassName: EnemyMiniBoss
+    ClassName: FxController
     Namespace: QFramework.Example
     MainCode: 
     DesignerCode: 
