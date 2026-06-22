@@ -26,7 +26,7 @@ namespace QFramework.Example
 				.Self(self =>
 				{
 					Button selfCache = self;
-					Text btnDescription = self.GetComponentInChildren<Text>();
+					Text btnDescription = selfCache.GetComponentInChildren<Text>();
 					ExpUpgradeItem itemCache = item;
 					btnDescription.text = itemCache.Description +$"Exp:{itemCache.Price}" ;
 					selfCache.onClick.AddListener(() =>
@@ -48,10 +48,10 @@ namespace QFramework.Example
 							selfCache.Hide();
 						}
 					});
-					itemCache.OnChanged.Register(() =>
+					itemCache.CurrentLevel.Register((lv) =>
 					{
 						btnDescription.text = itemCache.Description + $"Exp:{itemCache.Price}";
-					});
+					}).UnRegisterWhenGameObjectDestroyed(gameObject);
 				// if (itemCache.ConditionCheck())
 				// {
 				// 	selfCache.Show();		

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using ProjectSurvior;
 using QFramework;
 using QFramework.Example;
 using Unity.VisualScripting;
@@ -13,9 +14,27 @@ namespace QFramework.Example
         public static BindableProperty<int> Coin = new BindableProperty<int>(0);
         public static BindableProperty<int> Exp = new BindableProperty<int>(0);
         public static BindableProperty<int> Level = new BindableProperty<int>(1);
-        public static BindableProperty<float> SimpleAbilityDamage = new BindableProperty<float>(1);
+
         public static BindableProperty<float> CurrentSeconds = new BindableProperty<float>(0);
-        public static BindableProperty<float> SimpleAbilityDuration = new BindableProperty<float>(1.5f);
+
+        public static BindableProperty<float> SimpleAbilityDamage = new BindableProperty<float>(Config.InitSimpleSwordDamage);
+        public static BindableProperty<float> SimpleAbilityDuration = new BindableProperty<float>(Config.InitSimpleSwordDuration);
+        public static BindableProperty<int> SimpleSwordCount = new BindableProperty<int>(Config.InitSimpleSwordCount);
+        public static BindableProperty<float> SimpleSwordRange = new BindableProperty<float>(Config.InitSimpleSwordRange);
+
+        public static BindableProperty<float> SimpleKnifeDamage = new BindableProperty<float>(Config.InitSimpleKnifeDamage);
+        public static BindableProperty<float> SimpleKnifeDuration = new BindableProperty<float>(Config.InitSimpleKnifeDuration);
+        public static BindableProperty<int> SimpleKnifeCount = new BindableProperty<int>(Config.InitSimpleKnifeCount);
+        public static BindableProperty<int> SimpleKnifeAttackCount = new BindableProperty<int>(1);
+
+        public static BindableProperty<float> RotateSwordDamage = new(Config.InitRotateSwordDamage);
+        public static BindableProperty<int> RotateSwordCount = new(Config.InitRotateSwordCount);
+        public static BindableProperty<float> RotateSwordSpeed = new(Config.InitRotateSwordSpeed);
+        public static BindableProperty<float> RotateSwordRange = new(Config.InitRotateSwordRange);
+
+        public static BindableProperty<float> BasketBallDamage = new(Config.InitBasketBallDamage);
+        public static BindableProperty<float> BasketBallSpeed = new(Config.InitBasketBallSpeed);
+        public static BindableProperty<float> BasketBallCount = new(Config.InitBasketBallCount);
 
         public static BindableProperty<float> ExpPercent = new BindableProperty<float>(0.3f);
         public static BindableProperty<float> CoinPercent = new BindableProperty<float>(0.05f);
@@ -58,8 +77,21 @@ namespace QFramework.Example
             Exp.Value = 0;
             Level.Value = 1;
             CurrentSeconds.Value = 0;
-            SimpleAbilityDamage.Value = 1;
-            SimpleAbilityDuration.Value = 1.5f;
+            SimpleAbilityDamage.Value = Config.InitSimpleSwordDamage;
+            SimpleAbilityDuration.Value = Config.InitSimpleSwordDuration;
+            SimpleSwordRange.Value = Config.InitSimpleSwordRange;
+            SimpleSwordCount.Value = Config.InitSimpleSwordCount;
+
+            SimpleKnifeDamage.Value = Config.InitSimpleKnifeDamage;
+            SimpleKnifeCount.Value = Config.InitSimpleKnifeCount;
+            SimpleKnifeDuration.Value = Config.InitSimpleKnifeDuration;
+            SimpleKnifeAttackCount.Value = Config.InitSimpleKnifeAttackCount;
+
+            RotateSwordDamage.Value = Config.InitRotateSwordDamage;
+            RotateSwordCount.Value = Config.InitRotateSwordCount;
+            RotateSwordSpeed.Value = Config.InitRotateSwordSpeed;
+            RotateSwordRange.Value = Config.InitRotateSwordRange;
+            
             // EnemyGenerator.EnemyCount.Value = 0;
             Interface.GetSystem<ExpUpgradeSystem>().ResetData();
         }

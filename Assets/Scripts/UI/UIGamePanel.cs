@@ -13,18 +13,6 @@ namespace QFramework.Example
 		{
 			mData = uiData as UIGamePanelData ?? new UIGamePanelData();
 			Global.MaxHP.Value = PlayerPrefs.GetInt(nameof(Global.MaxHP),3);
-			// HP
-			Global.HP.RegisterWithInitValue(hp =>
-			{
-				HPText.text = "HP:" + hp + "/" + Global.MaxHP.Value;
-			}).UnRegisterWhenGameObjectDestroyed(gameObject);
-
-			// MaxHP
-			Global.MaxHP.RegisterWithInitValue(hp =>
-			{
-				HPText.text = "HP:" +Global.HP.Value+ "/" + Global.MaxHP.Value;
-			}).UnRegisterWhenGameObjectDestroyed(gameObject);
-
 			// Enemy Count
 			EnemyGenerator.EnemyCount.RegisterWithInitValue(enemyCount =>
 			{
@@ -45,7 +33,8 @@ namespace QFramework.Example
 			// Exp
 			Global.Exp.RegisterWithInitValue(exp =>
 			{
-				ExpText.text = "Exp:"+"("+exp+"/"+Global.ExpToNextLevel()+")";
+				ExpValue.fillAmount = exp / (float) Global.ExpToNextLevel();
+				// ExpText.text = "Exp:"+"("+exp+"/"+Global.ExpToNextLevel()+")";
 			}).UnRegisterWhenGameObjectDestroyed(gameObject);
 
 			Global.Exp.RegisterWithInitValue(exp =>

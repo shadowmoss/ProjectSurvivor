@@ -47,6 +47,14 @@ namespace QFramework.Example
 				}
 				
 			}).UnRegisterWhenGameObjectDestroyed(gameObject);
+			Global.HP.RegisterWithInitValue((HP) =>
+			{
+				HPValue.fillAmount = Global.HP.Value / (float) Global.MaxHP.Value;
+			}).UnRegisterWhenGameObjectDestroyed(this);
+			Global.MaxHP.RegisterWithInitValue((HP) =>
+			{
+				HPValue.fillAmount = Global.HP.Value / (float) Global.MaxHP.Value;
+			}).UnRegisterWhenGameObjectDestroyed(gameObject);
 		}
         void Update()
         {

@@ -23,7 +23,7 @@ namespace QFramework.Example
 			{
 				return;
 			}
-			FloatingTextController.Play(transform.position,""+damage);
+			FloatingTextController.Play(transform.position,""+damage.ToString());
 			Sprite.color = Color.red;
 			AudioKit.PlaySound("Hit");
 			ActionKit.Delay(0.2f, () =>

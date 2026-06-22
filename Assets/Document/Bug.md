@@ -16,3 +16,7 @@ Game场景加载之时，会导致当前场景中的Enemy调用其OnDestroy方�
 * 在ExpUpdatePanel中，创建具体的ExpUpdateItem项时，修改显示文字的需要到GetComponentInChild()中获取，结果我直接在Button组件当中进行获取Text，导致报错。
 # 2026/06/15 敌人生成、波次系统ScriptableObject、敌人死亡动画特效
 * 目前稍微困惑的点：Unity的可视化Shader系统。Unity Update FixedUpdate调用的差别，SceneManager特性，UGUI的层次结构，TileMap创建。
+# 2026/06/17 Sprite的类型，以及Sprite2D的pivot在具体的代码中起到什么作用？
+* QFramework ActionKit功能回顾。欧拉角变化。以及他这个幸存者游戏中，小刀动画步骤拆解。
+# 2026/06/20 RotateSword，围绕Player的角度变化公式，是怎么得出的。以及Unity相关的坐标系学习。
+* 目前来看想要自己完全独立实现ProjectSurvivor当中的图像变化公式，还得学习。

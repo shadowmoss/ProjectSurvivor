@@ -1,5 +1,6 @@
 using UnityEngine;
 using QFramework;
+using QAssetBundle;
 
 // 1.请在菜单 编辑器扩展/Namespace Settings 里设置命名空间
 // 2.命名空间更改后，生成代码之后，需要把逻辑代码文件（非 Designer）的命名空间手动更改
@@ -23,27 +24,31 @@ namespace QFramework.Example
 		void FixedUpdate()
 		{
 			// 每个Enemy向着Player移动的逻辑
-			if (Player.Default)
+			// 只有在未被攻击时,敌人单位才进行移动
+			if (!mIgnoreHurt)
 			{
-				var direction = (Player.Default.transform.position - this.transform.position).normalized;
-				SelfRigidbody2D.velocity = direction * moveSpeed;
-				// this.transform.Translate(direction *moveSpeed* Time.deltaTime);
+				if (Player.Default)
+				{
+					var direction = (Player.Default.transform.position - this.transform.position).normalized;
+					SelfRigidbody2D.velocity = direction * moveSpeed;
+					// this.transform.Translate(direction *moveSpeed* Time.deltaTime);
+				}
+				else
+				{
+					SelfRigidbody2D.velocity = Vector2.zero;
+				}
 			}
-			else
-			{
-				SelfRigidbody2D.velocity = Vector2.zero;
-			}
+			
 		}
         void Update()
         {
-			
-
 			if(HP <= 0)
 			{
 				this.DestroyGameObjGracefully();
 				
 				// Global.Exp.Value++;
 				FxController.Play(Sprite,DissolveColor);
+				AudioKit.PlaySound(Sfx.ENEMYDIE);
 				// 敌人掉落经验值功能
 				Global.GeneratePowerUp(gameObject);
 			}
@@ -56,7 +61,8 @@ namespace QFramework.Example
 			{
 				return;
 			}
-			FloatingTextController.Play(transform.position,""+damage);
+			mIgnoreHurt = true;
+			FloatingTextController.Play(transform.position,""+damage.ToString("0"));
 			Sprite.color = Color.red;
 			AudioKit.PlaySound("Hit");
 			ActionKit.Delay(0.2f, () =>

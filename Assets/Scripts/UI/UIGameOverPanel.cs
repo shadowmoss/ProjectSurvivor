@@ -15,17 +15,6 @@ namespace QFramework.Example
 			mData = uiData as UIGameOverPanelData ?? new UIGameOverPanelData();
 			Time.timeScale = 0;
 			// please add init code here
-			ActionKit.OnUpdate.Register(() =>
-			{
-				if (Input.GetKeyDown(KeyCode.Space))
-				{
-					
-					this.CloseSelf();
-					SceneManager.LoadScene("Game");
-					Global.ResetData();
-					
-				}
-			}).UnRegisterWhenGameObjectDestroyed(gameObject);
 			BtnBackToStart.onClick.AddListener(() =>
 			{
 				Global.ResetData();

@@ -273,6 +273,7 @@ MonoBehaviour:
   ViewControllerFullTypeName: 
   HP: 30
   moveSpeed: 1.5
+  DissolveColor: {r: 0.4820954, g: 0.8773585, b: 0.07863116, a: 1}
   Sprite: {fileID: 1022250872689614326}
   HitBox: {fileID: 7901891873188015741}
   HurtBox: {fileID: 5119531439463041395}

@@ -17,15 +17,6 @@ namespace QFramework.Example
 			Time.timeScale = 0;
 			AudioKit.PlaySound("Game_pass");
 			// please add init code here
-			ActionKit.OnUpdate.Register(() =>
-			{
-				if (Input.GetKeyDown(KeyCode.Space))
-				{
-					Global.ResetData();
-					this.CloseSelf();
-					SceneManager.LoadScene("Game");
-				}
-			}).UnRegisterWhenGameObjectDestroyed(gameObject);
 			BtnBackToStart.onClick.AddListener(() =>
 			{
 				Global.ResetData();
