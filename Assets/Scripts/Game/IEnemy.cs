@@ -1,8 +1,8 @@
 namespace QFramework.Example
 {
-    interface IEnemy
+    public interface IEnemy
     {
-        public void Hurt(float damage);
+        public void Hurt(float damage,bool force = false,bool critical = false);
         void SetHpScale(float hPScale);
         void SetSpeedScale(float speedScale);
     }

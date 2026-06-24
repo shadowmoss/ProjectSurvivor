@@ -3,6 +3,11 @@ using System;
 namespace QFramework.Example
 {
     class ExpUpgradeItem{
+            public bool IsWeapon = false;
+            public ExpUpgradeItem(bool isWeapon)
+            {
+                IsWeapon = isWeapon;
+            }
             // public EasyEvent OnChanged = new EasyEvent();
             public bool UpgradeFinish {get; set;} = false;
             public string Key{get;private set;}

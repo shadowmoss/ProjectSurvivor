@@ -55,14 +55,14 @@ namespace QFramework.Example
         }
 		bool mIgnoreHurt = false;
 
-		public void Hurt(float damage)
+		public void Hurt(float damage,bool force = false,bool critical = false)
 		{
 			if(mIgnoreHurt)
 			{
 				return;
 			}
 			mIgnoreHurt = true;
-			FloatingTextController.Play(transform.position,""+damage.ToString("0"));
+			FloatingTextController.Play(transform.position,""+damage.ToString("0"),critical);
 			Sprite.color = Color.red;
 			AudioKit.PlaySound("Hit");
 			ActionKit.Delay(0.2f, () =>

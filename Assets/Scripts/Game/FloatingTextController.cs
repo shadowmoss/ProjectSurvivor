@@ -21,7 +21,7 @@ namespace QFramework.Example
 		{
 			FloatingText.Hide();
 		}
-		public static void Play(Vector2 position,string text)
+		public static void Play(Vector2 position,string text,bool critical = false)
 		{
 			mDefault.FloatingText.InstantiateWithParent(mDefault.transform)
 			.Position(position.x,position.y)
@@ -31,6 +31,12 @@ namespace QFramework.Example
 				var textTrans = f.transform.Find("Text");
 				var textComp = textTrans.GetComponent<Text>();
 				textComp.text = text;
+
+				if (critical)
+				{
+					textComp.color = Color.red;
+				}
+
 				ActionKit.Sequence()
 					.Lerp(0, 0.5f, 0.5f, (p) =>
 					{

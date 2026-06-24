@@ -1425,6 +1425,7 @@ GameObject:
   m_Component:
   - component: {fileID: 787273215}
   - component: {fileID: 787273216}
+  - component: {fileID: 787273217}
   m_Layer: 0
   m_HasEditorInfo: 1
   m_Name: SimpleAxe
@@ -1469,6 +1470,22 @@ MonoBehaviour:
   ArchitectureFullTypeName: 
   ViewControllerFullTypeName: 
   Axe: {fileID: 121148257}
+--- !u!114 &787273217
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 787273214}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d51f3a7c41ab0346b49ae50d456bece, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MarkType: 0
+  CustomComponentName: SimpleAxe
+  CustomComment: 
+  mComponentName: QFramework.Example.SimpleAxe
 --- !u!4 &804156049 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 761224768487227901, guid: ab0992bef9bf840ec8ebb760599ae1b0, type: 3}
@@ -1538,6 +1555,7 @@ GameObject:
   m_Component:
   - component: {fileID: 902149041}
   - component: {fileID: 902149042}
+  - component: {fileID: 902149043}
   m_Layer: 0
   m_HasEditorInfo: 1
   m_Name: BasketBallAbility
@@ -1545,7 +1563,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &902149041
 Transform:
   m_ObjectHideFlags: 0
@@ -1582,6 +1600,22 @@ MonoBehaviour:
   ArchitectureFullTypeName: 
   ViewControllerFullTypeName: 
   Ball: {fileID: 1929438997}
+--- !u!114 &902149043
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 902149040}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d51f3a7c41ab0346b49ae50d456bece, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MarkType: 0
+  CustomComponentName: BasketBallAbility
+  CustomComment: 
+  mComponentName: QFramework.Example.BasketBallAbility
 --- !u!1 &924199619
 GameObject:
   m_ObjectHideFlags: 0
@@ -1934,6 +1968,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1187176060}
   - component: {fileID: 1187176061}
+  - component: {fileID: 1187176062}
   m_Layer: 0
   m_HasEditorInfo: 1
   m_Name: RotateSword
@@ -1978,6 +2013,22 @@ MonoBehaviour:
   ArchitectureFullTypeName: 
   ViewControllerFullTypeName: 
   Sword: {fileID: 1199454356}
+--- !u!114 &1187176062
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1187176059}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d51f3a7c41ab0346b49ae50d456bece, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MarkType: 0
+  CustomComponentName: RotateSword
+  CustomComment: 
+  mComponentName: QFramework.Example.RotateSword
 --- !u!1 &1199454353
 GameObject:
   m_ObjectHideFlags: 0
@@ -2129,6 +2180,7 @@ GameObject:
   serializedVersion: 7
   m_Component:
   - component: {fileID: 1278045660}
+  - component: {fileID: 1278045661}
   m_Layer: 0
   m_HasEditorInfo: 1
   m_Name: Abilities
@@ -2157,6 +2209,30 @@ Transform:
   - {fileID: 902149041}
   m_Father: {fileID: 1493777997}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1278045661
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1278045659}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb80d08871fab4731a38758ff6d5309b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Namespace: QFramework.Example
+  ScriptName: AbilitiesController
+  ScriptsFolder: Assets/Scripts/Game/Ability
+  GeneratePrefab: 0
+  PrefabFolder: Assets/Art/Prefab
+  ArchitectureFullTypeName: 
+  ViewControllerFullTypeName: 
+  SimpleSword: {fileID: 1797547895}
+  RotateSword: {fileID: 1187176061}
+  SimpleAxe: {fileID: 787273216}
+  SimpleKnife: {fileID: 2000178800}
+  BasketBallAbility: {fileID: 902149042}
 --- !u!1 &1301423850
 GameObject:
   m_ObjectHideFlags: 0
@@ -11878,6 +11954,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1797547894}
   - component: {fileID: 1797547895}
+  - component: {fileID: 1797547896}
   m_Layer: 0
   m_HasEditorInfo: 1
   m_Name: SimpleSword
@@ -11922,6 +11999,22 @@ MonoBehaviour:
   ArchitectureFullTypeName: 
   ViewControllerFullTypeName: 
   Sword: {fileID: 1315170955}
+--- !u!114 &1797547896
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1797547893}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d51f3a7c41ab0346b49ae50d456bece, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MarkType: 0
+  CustomComponentName: SimpleSword
+  CustomComment: 
+  mComponentName: QFramework.Example.SimpleSword
 --- !u!1 &1811071155
 GameObject:
   m_ObjectHideFlags: 0
@@ -12476,6 +12569,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2000178799}
   - component: {fileID: 2000178800}
+  - component: {fileID: 2000178801}
   m_Layer: 0
   m_HasEditorInfo: 1
   m_Name: SimpleKnife
@@ -12520,6 +12614,22 @@ MonoBehaviour:
   ArchitectureFullTypeName: 
   ViewControllerFullTypeName: 
   Knife: {fileID: 1091368231}
+--- !u!114 &2000178801
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2000178798}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d51f3a7c41ab0346b49ae50d456bece, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MarkType: 0
+  CustomComponentName: SimpleKnife
+  CustomComment: 
+  mComponentName: QFramework.Example.SimpleKnife
 --- !u!4 &2008427565 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2795044153957830229, guid: 0c9aedadabf5448e08126c02298753ea, type: 3}

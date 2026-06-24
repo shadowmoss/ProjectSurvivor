@@ -1,6 +1,7 @@
 using UnityEngine;
 using QFramework;
 using System.Linq;
+using ProjectSurvior;
 
 // 1.请在菜单 编辑器扩展/Namespace Settings 里设置命名空间
 // 2.命名空间更改后，生成代码之后，需要把逻辑代码文件（非 Designer）的命名空间手动更改
@@ -28,7 +29,7 @@ namespace QFramework.Example
 				foreach(var enemy in enemies
 				.OrderBy(e=>e.Direction2DFrom(Player.Default).magnitude)
 				.Where(e=>e.Direction2DFrom(Player.Default).magnitude < Global.SimpleSwordRange.Value)
-				.Take(Global.SimpleSwordCount.Value))
+				.Take(Global.SimpleSwordCount.Value + Global.AdditionalFlyThingCount.Value))
 				{
 					var distance = Player.Default.Direction2DFrom(enemy).magnitude;
 					// (Player.Default.transform.position - enemy.transform.position).magnitude;
@@ -49,7 +50,8 @@ namespace QFramework.Example
 									{
 										if (hurtBox.Owner.CompareTag("Enemy"))
 										{
-											enemy.Hurt(Global.SimpleAbilityDamage.Value);
+											DamageSystem.CalculateDamage(Global.SimpleAbilityDamage.Value,enemy);
+											// enemy.Hurt(Global.SimpleAbilityDamage.Value);
 										}
 									}
 								}).UnRegisterWhenGameObjectDestroyed(selfCache);

@@ -28,8 +28,9 @@ namespace QFramework.Example
 					}).UnRegisterWhenGameObjectDestroyed(exp);
 				}
 				AudioKit.PlaySound("GetAllExp");
+				this.DestroyGameObjGracefully();
 			}
-			this.DestroyGameObjGracefully();
+			
 		}
 	}
 }

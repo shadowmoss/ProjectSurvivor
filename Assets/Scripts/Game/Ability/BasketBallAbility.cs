@@ -12,20 +12,25 @@ namespace QFramework.Example
 		void Start()
 		{
 			Debug.Log("Execute Balls Ability");
-			Global.BasketBallCount.RegisterWithInitValue(count =>
-			{
-				Debug.Log("当前应生成的Ball的数量"+count);
-				if(count > mBalls.Count)
-				{
-					Debug.Log("Add new Ball");
-					mBalls.Add(Ball.Instantiate()
+			Global.BasketBallCount.Or(Global.AdditionalFlyThingCount).Register(
+				CreateBalls
+			).UnRegisterWhenGameObjectDestroyed(gameObject);
+			// Code Here
+			CreateBalls();
+		}
+		void CreateBall()
+		{
+			mBalls.Add(Ball.Instantiate()
 							.SyncPosition2DFrom(this)
 							.Show());
-				}
-			}).UnRegisterWhenGameObjectDestroyed(gameObject);
-			// Code Here
-			
 		}
-		
+		void CreateBalls()
+		{
+			int ballCount2Create = Global.BasketBallCount.Value + Global.AdditionalFlyThingCount.Value - mBalls.Count;
+			for(var i = 0;i < ballCount2Create; i++)
+			{
+				CreateBall();
+			}
+		}
 	}
 }

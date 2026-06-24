@@ -17,7 +17,7 @@ namespace QFramework.Example
 		public float speed = 1.2f;
 		public float HP = 30;
 		bool mIgnoreHurt = false;
-        public void Hurt(float damage)
+        public void Hurt(float damage,bool force = false,bool critical = false)
         {
 			if (mIgnoreHurt)
 			{

@@ -4,6 +4,7 @@ using System.Linq;
 using UnityEditor.UI;
 using System;
 using QAssetBundle;
+using ProjectSurvior;
 
 // 1.请在菜单 编辑器扩展/Namespace Settings 里设置命名空间
 // 2.命名空间更改后，生成代码之后，需要把逻辑代码文件（非 Designer）的命名空间手动更改
@@ -26,7 +27,7 @@ namespace QFramework.Example
 					mCurrentSeconds = 0;
 					var enemies = FindObjectsByType<Enemy>(FindObjectsInactive.Exclude,FindObjectsSortMode.None)
 									   .OrderBy(enemy=>Player.Default.Distance2D(enemy))
-									   .Take(Global.SimpleKnifeCount.Value);
+									   .Take(Global.SimpleKnifeCount.Value+Global.AdditionalFlyThingCount.Value);
 					var i =0;								   
 					foreach (var enemy in enemies)
 					{
@@ -61,7 +62,8 @@ namespace QFramework.Example
 											if (hurtBox.Owner.CompareTag("Enemy"))
 											{
 												Enemy enemy1 = hurtBox.Owner.GetComponent<Enemy>();
-												enemy1.Hurt(Global.SimpleKnifeDamage.Value);
+												// enemy1.Hurt(Global.SimpleKnifeDamage.Value);
+												DamageSystem.CalculateDamage(Global.SimpleKnifeDamage.Value,enemy1);
 												attackCount++;
 												if(attackCount >= Global.SimpleKnifeAttackCount.Value)
 												{

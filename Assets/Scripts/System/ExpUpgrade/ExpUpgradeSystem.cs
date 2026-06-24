@@ -24,7 +24,7 @@ namespace QFramework.Example
         public void ResetData()
         {
             Items.Clear();
-            Add(new ExpUpgradeItem()
+            Add(new ExpUpgradeItem(true)
                 .WithKey("simple_sword")
                 .WithDescription(lv =>
                 {
@@ -49,6 +49,7 @@ namespace QFramework.Example
                     switch (level)
                     {
                         case 1:
+                            Global.SimpleSwordUnlocked.Value = true;
                             break;
                         case 2:
                             Global.SimpleAbilityDamage.Value += 3;
@@ -92,7 +93,7 @@ namespace QFramework.Example
                 })
                 );
 
-                Add(new ExpUpgradeItem()
+                Add(new ExpUpgradeItem(true)
                     .WithKey("simple_knife")
                     .WithMaxLevel(10)
                     .WithDescription(lv =>
@@ -116,6 +117,7 @@ namespace QFramework.Example
                     switch (level)
                     {
                         case 1:
+                            Global.SimpleKnifeUnlocked.Value = true;
                             break;
                         case 2:
                             Global.SimpleKnifeDamage.Value += 3;
@@ -160,7 +162,7 @@ namespace QFramework.Example
                             break;
                     }
                 }));
-                Add(new ExpUpgradeItem()
+                Add(new ExpUpgradeItem(true)
                     .WithKey("rotate_sword")
                     .WithMaxLevel(10)
                     .WithDescription(lv =>
@@ -185,7 +187,7 @@ namespace QFramework.Example
                         switch (level)
                         {
                             case 1:
-                                // Global.RotateSwordUnlocked.Value = true;
+                                Global.RotateSwordUnlocked.Value = true;
                                 break;
                             case 2:
                                 Global.RotateSwordCount.Value++;
@@ -225,7 +227,7 @@ namespace QFramework.Example
                         }
                     })
                     );
-                    Add(new ExpUpgradeItem()
+                    Add(new ExpUpgradeItem(true)
                         .WithKey("basket_ball")
                         .WithMaxLevel(10)
                         .WithDescription(lv =>
@@ -250,6 +252,7 @@ namespace QFramework.Example
                             switch (level)
                             {
                                 case 1:
+                                    Global.BasketBallUnlocked.Value = true;
                                     break;
                                 case 2:
                                     Global.BasketBallDamage.Value += 3;
@@ -283,6 +286,173 @@ namespace QFramework.Example
                             }
                         })
                     );
+                    Add(new ExpUpgradeItem(false)
+                    .WithKey("simple_bomb")
+                    .WithMaxLevel(10)
+                    .WithDescription(lv =>
+                    {
+                        return lv switch
+                        {
+                        1=>$"Bomb level {lv}:BombDrop By Enemy",
+                        2=>$"Bomb level {lv}:drop percentage +5% damage +5",
+                        3=>$"Bomb level {lv}:drop percentage +5% damage +5",
+                        4=>$"Bomb level {lv}:drop percentage +5% damage +5",
+                        5=>$"Bomb level {lv}:drop percentage +5% damage +5",
+                        6=>$"Bomb level {lv}:drop percentage +5% damage +5",
+                        7=>$"Bomb level {lv}:drop percentage +5% damage +5",
+                        8=>$"Bomb level {lv}:drop percentage +5% damage +5",
+                        9=>$"Bomb level {lv}:drop percentage +5% damage +5",
+                        10=>$"Bomb level {lv}:drop percentage +10% damage +5",
+                        _=>null,
+                        };
+                    }).OnUpgrade((_, level) =>
+                    {
+                        switch (level)
+                        {
+                            case 1:
+                                Global.BombUnlocked.Value = true;
+                                break;
+                            case 2:
+                                Global.BombDamage.Value += 5;
+                                Global.BombPercent.Value += 0.05f;
+                            break;
+                            case 3:
+                                Global.BombDamage.Value += 5;
+                                Global.BombPercent.Value += 0.05f;
+                                break;
+                            case 4:
+                                Global.BombDamage.Value += 5;
+                                Global.BombPercent.Value += 0.05f;
+                                break;
+                            case 5:
+                                Global.BombDamage.Value += 5;
+                                Global.BombPercent.Value += 0.05f;
+                                break;
+                            case 6:
+                                Global.BombDamage.Value += 5;
+                                Global.BombPercent.Value += 0.05f;
+                                break;
+                            case 7:
+                                Global.BombDamage.Value += 5;
+                                Global.BombPercent.Value += 0.05f;
+                                break;
+                            case 8:
+                                Global.BombDamage.Value += 5;
+                                Global.BombPercent.Value += 0.05f;
+                                break;
+                            case 9:
+                                Global.BombDamage.Value += 5;
+                                Global.BombPercent.Value += 0.05f;
+                                break;
+                            case 10:
+                                Global.BombDamage.Value += 5;
+                                Global.BombPercent.Value += 0.1f;
+                                break;
+                            default:
+                                break;
+                        }
+                    }));
+                    Add(new ExpUpgradeItem(false)
+                        .WithKey("simple_critical")
+                        .WithMaxLevel(5)
+                        .WithDescription(lv =>
+                        {
+                            return lv switch
+                            {
+                                1 => $"critical Lv{lv}:\nper time damage 15%",
+                                2 => $"critical Lv{lv}:\nper time damage 28%",
+                                3 => $"critical Lv{lv}:\nper time damage 43%",
+                                4 => $"critical Lv{lv}:\nper time damage 50%",
+                                5 => $"critical Lv{lv}:\nper time damage 80%",
+                                _ => null
+                            };
+                        })
+                        .OnUpgrade((_, lv) =>
+                        {
+                            switch (lv)
+                            {
+                                case 1:
+                                    Global.CriticalRate.Value = 0.15f;
+                                    break;
+                                case 2:
+                                    Global.CriticalRate.Value = 0.28f;
+                                    break;
+                                case 3:
+                                    Global.CriticalRate.Value = 0.43f;
+                                    break;
+                                case 4:
+                                    Global.CriticalRate.Value = 0.5f;
+                                    break;
+                                case 5:
+                                    Global.CriticalRate.Value = 0.8f;
+                                    break;
+                            }
+                        })
+                    );
+                    Add(new ExpUpgradeItem(false)
+                        .WithKey("damage_rate")
+                        .WithDescription(lv =>
+                        {
+                            return lv switch
+                            {
+                                1 => $"Damage Rate Lv{lv}:\n increase external 20% damage",
+                                2 => $"Damage Rate Lv{lv}:\n increase external 40% damage",
+                                3 => $"Damage Rate Lv{lv}:\n increase external 60% damage",
+                                4 => $"Damage Rate Lv{lv}:\n increase external 80% damage",
+                                5 => $"Damage Rate Lv{lv}:\n increase external 100% damage",
+                                _ => null 
+                            };
+                        })
+                        .OnUpgrade((_, lv) =>
+                        {
+                            switch (lv)
+                            {
+                                case 1:
+                                    Global.DamageRate.Value = 1.2f;
+                                    break;
+                                case 2:
+                                    Global.DamageRate.Value = 1.4f;
+                                    break;
+                                case 3:
+                                    Global.DamageRate.Value = 1.6f;
+                                    break;
+                                case 4:
+                                    Global.DamageRate.Value = 1.8f;
+                                    break;
+                                case 5:
+                                    Global.DamageRate.Value = 2f;
+                                    break;
+                            }
+                        }));
+                    Add(new ExpUpgradeItem(false)
+                                .WithKey("simple_fly_count")
+                                .WithMaxLevel(3)
+                                .WithDescription(lv =>
+                                {
+                                    return lv switch
+                                    {
+                                        1 => $"fly item Lv{lv}:\n add one fly item",
+                                        2 => $"fly item Lv{lv}:\n add two fly item",
+                                        3 => $"fly item Lv{lv}\n add three fly item",
+                                        _ => null  
+                                    };
+                                })
+                                .OnUpgrade((_, lv) =>
+                                {
+                                    switch (lv)
+                                    {
+                                        case 1:
+                                            Global.AdditionalFlyThingCount.Value++;
+                                            break;
+                                        case 2:
+                                            Global.AdditionalFlyThingCount.Value++;
+                                            break;
+                                        case 3:
+                                            Global.AdditionalFlyThingCount.Value++;
+                                            break;
+                                    }
+                                })
+                    );    
         }
         // RandUpgrade
         public void Roll()
@@ -291,19 +461,28 @@ namespace QFramework.Example
             {
                 expUpgradeItem.Visible.Value = false;
             }
-            var items = Items.Where(item=>!item.UpgradeFinish).Take(4);
-            foreach (var item in items)
+            var items = Items.Where(item=>!item.UpgradeFinish).ToList();
+            if(items.Count >= 4)
             {
-                if(item == null)
+                items.GetAndRemoveRandomItem().Visible.Value = true;
+                items.GetAndRemoveRandomItem().Visible.Value = true;
+                items.GetAndRemoveRandomItem().Visible.Value = true;
+                items.GetAndRemoveRandomItem().Visible.Value = true;
+            }
+            else
+            {
+                 foreach (var item in items)
                 {
-                    
-                }
-                else
-                {
-                    item.Visible.Value = true;
+                    if(item == null)
+                    {
+                        
+                    }
+                    else
+                    {
+                        item.Visible.Value = true;
+                    }
                 }
             }
-            
         }
     }
 }

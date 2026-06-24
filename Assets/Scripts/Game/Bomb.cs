@@ -27,6 +27,7 @@ namespace QFramework.Example
 			}
 			AudioKit.PlaySound("bomb");
 			CameraController.Shake();
+			UIGamePanel.FlashScreen.Trigger();
 			this.DestroyGameObjGracefully();
 		}
 	}
