@@ -10,6 +10,10 @@ namespace QFramework.Example
 		void Start()
 		{
 			// Code Here
+			Global.CollectableArea.RegisterWithInitValue(range =>
+			{
+				GetComponent<CircleCollider2D>().radius = range;
+			}).UnRegisterWhenGameObjectDestroyed(gameObject);
 		}
 	}
 }

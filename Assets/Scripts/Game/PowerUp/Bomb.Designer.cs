@@ -1,11 +1,13 @@
-// Generate Id:50af12af-c4b2-4bac-b296-0e11e600bbb8
+// Generate Id:8425d4c8-280f-4bf4-ae00-2b1e64abcf96
 using UnityEngine;
 
 // 1.请在菜单 编辑器扩展/Namespace Settings 里设置命名空间
 // 2.命名空间更改后，生成代码之后，需要把逻辑代码文件（非 Designer）的命名空间手动更改
 namespace QFramework.Example
 {
-	public partial class Coin
+	public partial class Bomb
 	{
+		public UnityEngine.CircleCollider2D SelfCollider2D;
+		
 	}
 }

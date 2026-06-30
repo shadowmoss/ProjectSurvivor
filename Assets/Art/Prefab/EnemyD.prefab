@@ -117,6 +117,7 @@ GameObject:
   - component: {fileID: 7993820996439559631}
   - component: {fileID: 6815459518486100677}
   - component: {fileID: 7789729711005809951}
+  - component: {fileID: 3043950932219131973}
   m_Layer: 0
   m_HasEditorInfo: 1
   m_Name: HurtBox
@@ -212,6 +213,22 @@ MonoBehaviour:
   ArchitectureFullTypeName: 
   ViewControllerFullTypeName: 
   Owner: {fileID: 0}
+  SelfCollider2D: {fileID: 7993820996439559631}
+--- !u!114 &3043950932219131973
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1030934694204265689}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 411e729afed24c62a04e2b99d9122e78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Binds:
+  - MemberName: SelfCollider2D
+    Object: {fileID: 7993820996439559631}
 --- !u!1 &1895550404628379594
 GameObject:
   m_ObjectHideFlags: 0
@@ -345,6 +362,7 @@ GameObject:
   - component: {fileID: 4049184188366861727}
   - component: {fileID: 468999504835523053}
   - component: {fileID: 2393586079788658863}
+  - component: {fileID: 3632061733053735933}
   m_Layer: 0
   m_HasEditorInfo: 1
   m_Name: HitBox
@@ -440,6 +458,22 @@ MonoBehaviour:
   ArchitectureFullTypeName: 
   ViewControllerFullTypeName: 
   Owner: {fileID: 0}
+  SelfCollider2D: {fileID: 468999504835523053}
+--- !u!114 &3632061733053735933
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2222785717630064976}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 411e729afed24c62a04e2b99d9122e78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Binds:
+  - MemberName: SelfCollider2D
+    Object: {fileID: 468999504835523053}
 --- !u!1 &8443346210637773782
 GameObject:
   m_ObjectHideFlags: 0

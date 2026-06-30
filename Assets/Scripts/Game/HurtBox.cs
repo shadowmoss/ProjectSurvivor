@@ -5,11 +5,15 @@ using QFramework;
 // 2.命名空间更改后，生成代码之后，需要把逻辑代码文件（非 Designer）的命名空间手动更改
 namespace QFramework.Example
 {
-	public partial class HurtBox : ViewController
+	public partial class HurtBox : GameplayObject
 	{
 		public GameObject Owner;
-		
-		void Start()
+		private Collider2D mCollider2D;
+        void Awake()
+        {
+            mCollider2D = GetComponent<Collider2D>();
+        }
+        void Start()
 		{
 			// Code Here
 			if (!Owner)
@@ -17,5 +21,6 @@ namespace QFramework.Example
 				this.Owner = this.transform.parent.gameObject;
 			}
 		}
+        protected override Collider2D Collider2D => mCollider2D;
 	}
 }

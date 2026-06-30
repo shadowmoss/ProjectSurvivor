@@ -48,6 +48,9 @@ namespace QFramework.Example
         public static BindableProperty<float> DamageRate = new(1);
 
         public static BindableProperty<int> AdditionalFlyThingCount = new (0);
+        public static BindableProperty<float> MovementSpeedRate = new(1.0f);
+        public static BindableProperty<float> CollectableArea = new(Config.InitCollectableArea);
+        public static BindableProperty<float> AdditionalExpPercent = new(0);
 
         public static BindableProperty<float> ExpPercent = new BindableProperty<float>(0.3f);
         public static BindableProperty<float> CoinPercent = new BindableProperty<float>(0.05f);
@@ -122,6 +125,11 @@ namespace QFramework.Example
             DamageRate.Value = 1;
 
             AdditionalFlyThingCount.Value = 0;
+
+            AdditionalExpPercent.Value = 0;
+
+            MovementSpeedRate.Value = 1.0f;
+            CollectableArea.Value = Config.InitCollectableArea;
             
             // EnemyGenerator.EnemyCount.Value = 0;
             Interface.GetSystem<ExpUpgradeSystem>().ResetData();
@@ -130,12 +138,20 @@ namespace QFramework.Example
         {
             return Level.Value * 5;
         }
-        public static void GeneratePowerUp(GameObject gameObject)
+        public static void GeneratePowerUp(GameObject gameObject,bool genTreasureChest)
         {
+            if (genTreasureChest)
+            {
+                PowerUpManger.Default.TreasureChest
+                    .Instantiate()
+                    .Position(gameObject.Position())
+                    .Show();
+                return;
+            }
             float expPercent = Random.Range(0, 1f);
 
             // Debug.Log($"ExpPercent:{expPercent} Global.ExpPercent.Value:{Global.ExpPercent.Value}}}");
-            if (expPercent < Global.ExpPercent.Value)
+            if (expPercent < Global.ExpPercent.Value + AdditionalExpPercent.Value)
             {
                 PowerUpManger.Default.Exp.Instantiate()
                     .Position(gameObject.Position())

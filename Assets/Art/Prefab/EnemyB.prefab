@@ -100,6 +100,7 @@ GameObject:
   - component: {fileID: 114604171802124101}
   - component: {fileID: 7522602034845225395}
   - component: {fileID: 109231383422687007}
+  - component: {fileID: 8720992283183055658}
   m_Layer: 0
   m_HasEditorInfo: 1
   m_Name: HurtBox
@@ -195,6 +196,22 @@ MonoBehaviour:
   ArchitectureFullTypeName: 
   ViewControllerFullTypeName: 
   Owner: {fileID: 0}
+  SelfCollider2D: {fileID: 114604171802124101}
+--- !u!114 &8720992283183055658
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3683036077457836839}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 411e729afed24c62a04e2b99d9122e78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Binds:
+  - MemberName: SelfCollider2D
+    Object: {fileID: 114604171802124101}
 --- !u!1 &6760963647804456596
 GameObject:
   m_ObjectHideFlags: 0
@@ -249,7 +266,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Namespace: QFramework.Example
   ScriptName: Enemy
-  ScriptsFolder: Assets/Scripts/Game
+  ScriptsFolder: Assets/Scripts/Game/Enemy
   GeneratePrefab: 0
   PrefabFolder: Assets/Art/Prefab
   ArchitectureFullTypeName: 
@@ -433,6 +450,7 @@ GameObject:
   - component: {fileID: 3801573625217602658}
   - component: {fileID: 6099379029407684142}
   - component: {fileID: 8434487297222688389}
+  - component: {fileID: 3278484499319991731}
   m_Layer: 0
   m_HasEditorInfo: 1
   m_Name: HitBox
@@ -528,3 +546,19 @@ MonoBehaviour:
   ArchitectureFullTypeName: 
   ViewControllerFullTypeName: 
   Owner: {fileID: 0}
+  SelfCollider2D: {fileID: 6099379029407684142}
+--- !u!114 &3278484499319991731
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8160168322544748576}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 411e729afed24c62a04e2b99d9122e78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Binds:
+  - MemberName: SelfCollider2D
+    Object: {fileID: 6099379029407684142}

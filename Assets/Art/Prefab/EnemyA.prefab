@@ -54,13 +54,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Namespace: QFramework.Example
   ScriptName: Enemy
-  ScriptsFolder: Assets/Scripts/Game
+  ScriptsFolder: Assets/Scripts/Game/Enemy
   GeneratePrefab: 0
   PrefabFolder: Assets/Art/Prefab
   ArchitectureFullTypeName: 
   ViewControllerFullTypeName: 
   HP: 3
   moveSpeed: 1.5
+  DissolveColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  TreasureChestEnemy: 0
   Sprite: {fileID: 7031181296025896577}
   HitBox: {fileID: 5600010468552171818}
   HurtBox: {fileID: 4986671323067973823}
@@ -325,6 +327,7 @@ GameObject:
   - component: {fileID: 4986671323067973823}
   - component: {fileID: 5939188872804119956}
   - component: {fileID: 7897245017336598132}
+  - component: {fileID: 5227238902091646209}
   m_Layer: 0
   m_HasEditorInfo: 1
   m_Name: HurtBox
@@ -420,6 +423,22 @@ MonoBehaviour:
   ArchitectureFullTypeName: 
   ViewControllerFullTypeName: 
   Owner: {fileID: 0}
+  SelfCollider2D: {fileID: 4986671323067973823}
+--- !u!114 &5227238902091646209
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7472319052857702701}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 411e729afed24c62a04e2b99d9122e78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Binds:
+  - MemberName: SelfCollider2D
+    Object: {fileID: 4986671323067973823}
 --- !u!1 &8952941369984116533
 GameObject:
   m_ObjectHideFlags: 0
@@ -432,6 +451,7 @@ GameObject:
   - component: {fileID: 6438587068846265346}
   - component: {fileID: 152208594205900208}
   - component: {fileID: 9192254910803773847}
+  - component: {fileID: 7538899141760700477}
   m_Layer: 0
   m_HasEditorInfo: 1
   m_Name: HitBox
@@ -527,3 +547,19 @@ MonoBehaviour:
   ArchitectureFullTypeName: 
   ViewControllerFullTypeName: 
   Owner: {fileID: 0}
+  SelfCollider2D: {fileID: 152208594205900208}
+--- !u!114 &7538899141760700477
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8952941369984116533}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 411e729afed24c62a04e2b99d9122e78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Binds:
+  - MemberName: SelfCollider2D
+    Object: {fileID: 152208594205900208}

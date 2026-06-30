@@ -452,7 +452,108 @@ namespace QFramework.Example
                                             break;
                                     }
                                 })
-                    );    
+                    );
+                    Add(new ExpUpgradeItem(false)
+                        .WithKey("movement_speed_rate")
+                        .WithMaxLevel(5)
+                        .WithDescription(lv =>
+                        {
+                            return lv switch
+                            {
+                                1 => $"move speed Lv{lv}:\nadd 25% move speed rate",
+                                2 => $"move speed Lv{lv}:\nadd 50% move speed rate",
+                                3 => $"move speed Lv{lv}:\nadd 75% move speed rate",
+                                4 => $"move speed Lv{lv}:\nadd 100% move speed rate",
+                                5 => $"move speed Lv{lv}:\nadd 150% move speed rate",
+                                _ => null
+                            };
+                        })
+                        .OnUpgrade((_, lv) =>
+                        {
+                            switch (lv)
+                            {
+                                case 1:
+                                    Global.MovementSpeedRate.Value = 1.25f;
+                                    break;
+                                case 2:
+                                    Global.MovementSpeedRate.Value = 1.5f;
+                                    break;
+                                case 3:
+                                    Global.MovementSpeedRate.Value = 1.75f;
+                                    break;
+                                case 4:
+                                    Global.MovementSpeedRate.Value = 2f;
+                                    break;
+                                case 5:
+                                    Global.MovementSpeedRate.Value = 2.5f;
+                                    break;
+                            }
+                        }));
+                        Add(new ExpUpgradeItem(false)
+                            .WithKey("simple_collectable_area")
+                            .WithMaxLevel(3)
+                            .WithDescription(lv =>
+                            {
+                                return lv switch
+                                {
+                                  1 => $"pick area Lv{lv}:\nadd 100% range",
+                                  2 => $"pick area Lv{lv}:\nadd 200% range",
+                                  3 => $"pick area Lv{lv}:\nadd 300* range",
+                                  _ => null  
+                                };
+                            })
+                            .OnUpgrade((_, lv) =>
+                            {
+                                switch (lv)
+                                {
+                                    case 1:
+                                        Global.CollectableArea.Value = 2f;
+                                        break;
+                                    case 2:
+                                        Global.CollectableArea.Value = 3f;
+                                        break;
+                                    case 3:
+                                        Global.CollectableArea.Value = 4f;
+                                        break;
+                                }
+                            })
+                        );
+                        Add(new ExpUpgradeItem(false)
+                            .WithKey("simple_exp")
+                            .WithDescription(lv =>
+                            {
+                                return lv switch
+                                {
+                                  1 => $"exp Lv{lv}:\nadd 5% drop rate",
+                                  2 => $"exp Lv{lv}:\nadd 8% drop rate",
+                                  3 => $"exp Lv{lv}:\nadd 12% drop rate",
+                                  4 => $"exp Lv{lv}:\nadd 17% drop rate",
+                                  5 => $"exp Lv{lv}:\nadd 25% drop rate",
+                                  _ => null  
+                                };
+                            })
+                            .OnUpgrade((_, lv) =>
+                            {
+                                switch (lv)
+                                {
+                                    case 1:
+                                        Global.AdditionalExpPercent.Value = 0.05f;
+                                        break;
+                                    case 2:
+                                        Global.AdditionalExpPercent.Value = 0.08f;
+                                        break;
+                                    case 3:
+                                        Global.AdditionalExpPercent.Value = 0.12f;
+                                        break;
+                                    case 4:
+                                        Global.AdditionalExpPercent.Value = 0.17f;
+                                        break;
+                                    case 5:
+                                        Global.AdditionalExpPercent.Value = 0.25f;
+                                        break;
+                                }
+                            })
+                        );
         }
         // RandUpgrade
         public void Roll()

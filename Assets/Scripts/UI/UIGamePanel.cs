@@ -10,6 +10,7 @@ namespace QFramework.Example
 	public partial class UIGamePanel : UIPanel
 	{
 		public static EasyEvent FlashScreen = new EasyEvent();
+		public static EasyEvent OpenTreasurePanel = new EasyEvent();
 		protected override void OnInit(IUIData uiData = null)
 		{
 			mData = uiData as UIGamePanelData ?? new UIGamePanelData();
@@ -92,6 +93,11 @@ namespace QFramework.Example
 						.Start(this);
 				}
 			).UnRegisterWhenGameObjectDestroyed(this);
+			OpenTreasurePanel.Register(() =>
+			{
+				Time.timeScale = 0f;
+				TreasureChestPanel.Show();
+			}).UnRegisterWhenGameObjectDestroyed(this);
 		}
 		
 		protected override void OnOpen(IUIData uiData = null)

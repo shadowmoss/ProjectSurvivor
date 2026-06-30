@@ -1,4 +1,4 @@
-// Generate Id:f5dc002d-98a9-4be4-90bb-eb704881c7e5
+// Generate Id:fcfda102-5860-4c17-8021-4ff26e3196c1
 using UnityEngine;
 
 // 1.请在菜单 编辑器扩展/Namespace Settings 里设置命名空间
@@ -7,5 +7,7 @@ namespace QFramework.Example
 {
 	public partial class HitBox
 	{
+		public UnityEngine.CircleCollider2D SelfCollider2D;
+		
 	}
 }

@@ -18,24 +18,9 @@ MonoBehaviour:
     GameObject: {fileID: 0}
     From: 0
     NameToFullName: []
-    BindInfos:
-    - TypeName: QFramework.Example.SimpleSword
-      PathToRoot: SimpleSword
-      MemberName: SimpleSword
-    - TypeName: QFramework.Example.RotateSword
-      PathToRoot: RotateSword
-      MemberName: RotateSword
-    - TypeName: QFramework.Example.SimpleAxe
-      PathToRoot: SimpleAxe
-      MemberName: SimpleAxe
-    - TypeName: QFramework.Example.SimpleKnife
-      PathToRoot: SimpleKnife
-      MemberName: SimpleKnife
-    - TypeName: QFramework.Example.BasketBallAbility
-      PathToRoot: BasketBallAbility
-      MemberName: BasketBallAbility
-    ScriptsFolder: Assets/Scripts/Game/Ability
-    ClassName: AbilitiesController
+    BindInfos: []
+    ScriptsFolder: Assets/Scripts/Game/PowerUp
+    ClassName: Bomb
     Namespace: QFramework.Example
     MainCode: 
     DesignerCode: 

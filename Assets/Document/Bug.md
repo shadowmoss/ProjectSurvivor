@@ -18,6 +18,7 @@ Game场景加载之时，会导致当前场景中的Enemy调用其OnDestroy方�
 * 目前稍微困惑的点：Unity的可视化Shader系统。Unity Update FixedUpdate调用的差别，SceneManager特性，UGUI的层次结构，TileMap创建。
 # 2026/06/17 Sprite的类型，以及Sprite2D的pivot在具体的代码中起到什么作用？
 * QFramework ActionKit功能回顾。欧拉角变化。以及他这个幸存者游戏中，小刀动画步骤拆解。
+pivot决定2D Sprite自身本地坐标系的原点位置，也就决定了，Sprite旋转的原点，位移移动的原点位置。
 # 2026/06/20 RotateSword，围绕Player的角度变化公式，是怎么得出的。以及Unity相关的坐标系学习。
 * 目前来看想要自己完全独立实现ProjectSurvivor当中的图像变化公式，还得学习。
 # 2026/06/23 完成内容
@@ -27,3 +28,5 @@ Game场景加载之时，会导致当前场景中的Enemy调用其OnDestroy方�
 * 完成造成伤害暴击率提升
 * 完成敌人伤害率提升，以及额外飞射物升级
 * 需要理清楚刚体和碰撞体之间的关系。
+Rigidbody2D组件，俗称2D刚体组件，是Unity2D物理系统的一部分，主要用于将2D场景中，存在的collider之间的交互产生的作用，反作用到当前GameObject上附加的其他组件上。
+Rigidbody2D组件自身并不会产生任何物理交互效果，只有附加在GameObject上的Collider2D组件，在GameObject附加了Rigidbody2D组件之后才会产生物理碰撞效果。

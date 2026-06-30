@@ -11,6 +11,7 @@ namespace QFramework.Example
 		public float HP = 3;
 		public float moveSpeed = 2.0f;
 		public Color DissolveColor = Color.yellow;
+		public bool TreasureChestEnemy = false;
 		void Start()
 		{
 			// Code Here
@@ -50,7 +51,7 @@ namespace QFramework.Example
 				FxController.Play(Sprite,DissolveColor);
 				AudioKit.PlaySound(Sfx.ENEMYDIE);
 				// 敌人掉落经验值功能
-				Global.GeneratePowerUp(gameObject);
+				Global.GeneratePowerUp(gameObject,TreasureChestEnemy);
 			}
         }
 		bool mIgnoreHurt = false;

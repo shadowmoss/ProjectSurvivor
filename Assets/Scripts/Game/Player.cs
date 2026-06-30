@@ -60,7 +60,7 @@ namespace QFramework.Example
         {
             var horizontal = Input.GetAxisRaw("Horizontal");
 			var vertical = Input.GetAxisRaw("Vertical");
-			var targetVelocity = new Vector2(horizontal,vertical).normalized * moveSpeed;
+			var targetVelocity = new Vector2(horizontal,vertical).normalized * (moveSpeed * Global.MovementSpeedRate.Value);
 			SelfRigidbody2D.velocity =  Vector2.Lerp(SelfRigidbody2D.velocity,targetVelocity,1.0f-Mathf.Exp(-Time.deltaTime * 5));
         }
     }

@@ -5,7 +5,7 @@ using QFramework;
 
 namespace QFramework.Example
 {
-	// Generate Id:5db16ae1-cb55-4aae-bece-92f9250d063d
+	// Generate Id:18c3d345-fbcf-45fe-a695-abccc868233d
 	public partial class UIGamePanel
 	{
 		public const string Name = "UIGamePanel";
@@ -24,6 +24,8 @@ namespace QFramework.Example
 		public UnityEngine.UI.Image ExpValue;
 		[SerializeField]
 		public UnityEngine.UI.Image ScreenColor;
+		[SerializeField]
+		public TreasureChestPanel TreasureChestPanel;
 		
 		private UIGamePanelData mPrivateData = null;
 		
@@ -36,6 +38,7 @@ namespace QFramework.Example
 			ExpUpgradePanel = null;
 			ExpValue = null;
 			ScreenColor = null;
+			TreasureChestPanel = null;
 			
 			mData = null;
 		}
